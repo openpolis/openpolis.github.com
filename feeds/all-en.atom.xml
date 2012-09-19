@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Openpolis Lab</title><link href="http://openpolis.github.com/" rel="alternate"></link><link href="http://openpolis.github.com/feeds/all-en.atom.xml" rel="self"></link><id>http://openpolis.github.com/</id><updated>2011-10-03T10:20:00+02:00</updated><entry><title>My second title</title><link href="http://openpolis.github.com/my-second-title.html" rel="alternate"></link><updated>2011-10-03T10:20:00+02:00</updated><author><name>Guglielmo Celata</name></author><id>tag:openpolis.github.com,2011-10-03:my-second-title.html</id><summary type="html">&lt;p&gt;My Second blog post, now changed, and changed again.&lt;/p&gt;
-</summary><category term="thats"></category><category term="awesome"></category></entry><entry><title>My fourth title</title><link href="http://openpolis.github.com/my-fourth-title.html" rel="alternate"></link><updated>2010-10-03T10:20:00+02:00</updated><author><name>Guglielmo Celata</name></author><id>tag:openpolis.github.com,2010-10-03:my-fourth-title.html</id><summary type="html">&lt;div class="system-message"&gt;
-&lt;p class="system-message-title"&gt;System Message: WARNING/2 (&lt;tt class="docutils"&gt;/Users/guglielmo/Workspace/openpolis-lab/content/fourth.rst&lt;/tt&gt;, line 2)&lt;/p&gt;
-&lt;p&gt;Title underline too short.&lt;/p&gt;
-&lt;pre class="literal-block"&gt;
-My fourth title
-##############
-&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;My fourth blog post.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Openpolis Lab</title><link href="http://openpolis.github.com/" rel="alternate"></link><link href="http://openpolis.github.com/feeds/all-en.atom.xml" rel="self"></link><id>http://openpolis.github.com/</id><updated>2012-09-17T19:02:00+02:00</updated><entry><title>BLOG TODO LIST</title><link href="http://openpolis.github.com/blog-todo-list.html" rel="alternate"></link><updated>2012-09-17T19:02:00+02:00</updated><author><name>danielef</name></author><id>tag:openpolis.github.com,2012-09-17:blog-todo-list.html</id><summary type="html">&lt;ul class="simple"&gt;
+&lt;li&gt;refine blog deploy flow (make/fab file)&lt;/li&gt;
+&lt;li&gt;make a theme&lt;/li&gt;
+&lt;li&gt;add links&lt;/li&gt;
+&lt;li&gt;disquos?&lt;/li&gt;
+&lt;li&gt;google analytics?&lt;/li&gt;
+&lt;/ul&gt;
+</summary></entry><entry><title>My second title</title><link href="http://openpolis.github.com/my-second-title.html" rel="alternate"></link><updated>2011-10-03T10:20:00+02:00</updated><author><name>Guglielmo Celata</name></author><id>tag:openpolis.github.com,2011-10-03:my-second-title.html</id><summary type="html">&lt;p&gt;My Second blog post, now changed, and changed again.&lt;/p&gt;
+</summary><category term="thats"></category><category term="awesome"></category></entry><entry><title>My fourth title</title><link href="http://openpolis.github.com/my-fourth-title.html" rel="alternate"></link><updated>2010-10-03T10:20:00+02:00</updated><author><name>Guglielmo Celata</name></author><id>tag:openpolis.github.com,2010-10-03:my-fourth-title.html</id><summary type="html">&lt;p&gt;My fourth blog post.&lt;/p&gt;
 </summary><category term="thats"></category><category term="awesome"></category></entry><entry><title>My super title</title><link href="http://openpolis.github.com/my-super-title.html" rel="alternate"></link><updated>2010-10-03T10:20:00+02:00</updated><author><name>Guglielmo Celata</name></author><id>tag:openpolis.github.com,2010-10-03:my-super-title.html</id><summary type="html">&lt;p&gt;My First blog post, now changed, and changed again.&lt;/p&gt;
-</summary><category term="thats"></category><category term="awesome"></category></entry><entry><title>My third title</title><link href="http://openpolis.github.com/my-third-title.html" rel="alternate"></link><updated>2010-10-03T10:20:00+02:00</updated><author><name>Guglielmo Celata</name></author><id>tag:openpolis.github.com,2010-10-03:my-third-title.html</id><summary type="html">&lt;p&gt;My third blog post.&lt;/p&gt;
 </summary><category term="thats"></category><category term="awesome"></category></entry></feed>
