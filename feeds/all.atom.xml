@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Openpolis Lab</title><link href="http://openpolis.github.com/" rel="alternate"></link><link href="http://openpolis.github.com/feeds/all.atom.xml" rel="self"></link><id>http://openpolis.github.com/</id><updated>2012-09-17T19:02:00+02:00</updated><entry><title>BLOG TODO LIST</title><link href="http://openpolis.github.com/blog-todo-list.html" rel="alternate"></link><updated>2012-09-17T19:02:00+02:00</updated><author><name>danielef</name></author><id>tag:openpolis.github.com,2012-09-17:blog-todo-list.html</id><summary type="html">&lt;ul class="simple"&gt;
-&lt;li&gt;refine blog deploy flow (make/fab file)&lt;/li&gt;
-&lt;li&gt;make a theme&lt;/li&gt;
-&lt;li&gt;add links&lt;/li&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Openpolis Lab</title><link href="http://openpolis.github.com/" rel="alternate"></link><link href="http://openpolis.github.com/feeds/all.atom.xml" rel="self"></link><id>http://openpolis.github.com/</id><updated>2012-09-17T19:02:00+02:00</updated><entry><title>BLOG TODO LIST</title><link href="http://openpolis.github.com/blog-todo-list.html" rel="alternate"></link><updated>2012-09-17T19:02:00+02:00</updated><author><name>danielef</name></author><id>tag:openpolis.github.com,2012-09-17:blog-todo-list.html</id><summary type="html">&lt;ul class="simple"&gt;
+&lt;li&gt;refine blog deploy flow (make/fab&amp;nbsp;file)&lt;/li&gt;
+&lt;li&gt;make a&amp;nbsp;theme&lt;/li&gt;
+&lt;li&gt;add&amp;nbsp;links&lt;/li&gt;
 &lt;li&gt;disquos?&lt;/li&gt;
-&lt;li&gt;google analytics?&lt;/li&gt;
+&lt;li&gt;google&amp;nbsp;analytics?&lt;/li&gt;
 &lt;/ul&gt;
 </summary></entry></feed>

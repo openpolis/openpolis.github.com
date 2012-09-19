@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>BLOG TODO LIST</title>
+        <title>BLOG TODO LIST</title>
         <meta charset="utf-8" />
         <link rel="stylesheet" href="./theme/css/main.css" type="text/css" />
         
@@ -41,7 +41,7 @@
     <header>
       <h1 class="entry-title">
         <a href="blog-todo-list.html" rel="bookmark"
-           title="Permalink to BLOG TODO LIST">BLOG TODO LIST</a></h1>
+           title="Permalink to BLOG TODO LIST"><span class="caps">BLOG</span> <span class="caps">TODO</span>&nbsp;<span class="caps">LIST</span></a></h1>
       
     </header>
 
@@ -62,14 +62,27 @@
 
 </footer><!-- /.post-info -->
       <ul class="simple">
-<li>refine blog deploy flow (make/fab file)</li>
-<li>make a theme</li>
-<li>add links</li>
+<li>refine blog deploy flow (make/fab&nbsp;file)</li>
+<li>make a&nbsp;theme</li>
+<li>add&nbsp;links</li>
 <li>disquos?</li>
-<li>google analytics?</li>
+<li>google&nbsp;analytics?</li>
 </ul>
 
     </div><!-- /.entry-content -->
+    
+    <div class="comments">
+      <h2>Comments !</h2>
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+        var disqus_identifier = "blog-todo-list.html";
+        (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://openpolislab.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+    </div>
     
 
   </article>
@@ -81,13 +94,11 @@
                         <h2>blogroll</h2>
                         <ul>
                         
-                            <li><a href="http://docs.notmyidea.org/alexis/pelican/">Pelican</a></li>
+                            <li><a href="http://www.openpolis.it">Openpolis</a></li>
                         
                             <li><a href="http://python.org">Python.org</a></li>
                         
                             <li><a href="http://jinja.pocoo.org">Jinja2</a></li>
-                        
-                            <li><a href="#">You can modify those links in your config file</a></li>
                         
                         </ul>
                 </div><!-- /.blogroll -->
@@ -100,9 +111,11 @@
                             
 
                         
-                            <li><a href="#">You can add links in your config file</a></li>
+                            <li><a href="https://www.facebook.com/openpolis">facebook</a></li>
                         
-                            <li><a href="#">Another social link</a></li>
+                            <li><a href="https://twitter.com/openpolis">twitter</a></li>
+                        
+                            <li><a href="https://github.com/openpolis/">github</a></li>
                         
                         </ul>
                 </div><!-- /.social -->
@@ -119,6 +132,16 @@
 
 
 
+
+<script type="text/javascript">
+    var disqus_shortname = 'openpolislab';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
 
 </body>
 </html>
