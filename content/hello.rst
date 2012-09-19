@@ -7,4 +7,4 @@ Hello, world!
 :author: Guglielmo Celata
 
 
-Ciao, questo è il mio blog
+Ciao, questo è il mio blog. Posso scrivere quello che voglio. Posso modificare.
