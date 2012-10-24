@@ -22,9 +22,10 @@ def push(commit_message):
         local('git push origin master')
 
 def publish(commit_message):
-    """Re-generates the blog, commits and pushes to github."""
-    push(commit_message)
     
     # regenerate output
     pelican()
+
+    """Re-generates the blog, commits and pushes to github."""
+    push(commit_message)
     
