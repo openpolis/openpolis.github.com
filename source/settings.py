@@ -1,23 +1,29 @@
 """Settings for pelican."""
 
-# This can also be the absolute path to a theme that you downloaded
-# i.e. './themes/anothertheme/'
+AUTHOR = u'Openpolis'
+SITENAME = u'Openpolis Lab'
+SITEURL = 'http://openpolis.github.com'
+TIMEZONE = 'Europe/Rome'
+
+DEFAULT_LANG = 'en'
+
+# Blogroll
+LINKS =  (('Openpolis', 'http://www.openpolis.it'),
+          ('Python.org', 'http://python.org'),
+          ('Jinja2', 'http://jinja.pocoo.org'),)
+
+# Social widget
+SOCIAL = (('facebook', 'https://www.facebook.com/openpolis'),
+          ('twitter', 'https://twitter.com/openpolis'),
+          ('github', 'https://github.com/openpolis/'),)
+
+DEFAULT_PAGINATION = 10
+REVERSE_ARCHIVE_ORDER = True
+
+DISQUS_SITENAME = 'openpolislab'
 THEME = 'notmyidea'
+TYPOGRIFY = True
 
-# The folder ``images`` should be copied into the folder ``static`` when
-# generating the output.
-STATIC_PATHS = ['images', ]
-
-# See http://pelican.notmyidea.org/en/latest/settings.html#timezone
-TIMEZONE = 'UTC'
-
-# Pelican will take the ``Date`` metadata and put the articles into folders
-# like ``/posts/2012/02/`` when generating the output.
-ARTICLE_PERMALINK_STRUCTURE = '/%Y/%m/'
-
-# I like to put everything into the category ``Blog``, which also appears on
-# the main menu. Tags will not appear on the menu.
-DEFAULT_CATEGORY = 'Blog'
 
 # I like to have ``Archives`` in the main menu.
 MENUITEMS = (
@@ -25,13 +31,7 @@ MENUITEMS = (
 )
 
 
-AUTHOR = 'Openpolis'
-SITENAME = 'openpolis.github.com'
-SITEURL = 'http://openpolis.github.com'
 
-WITH_PAGINATION = True
-DEFAULT_PAGINATION = 10
-REVERSE_ARCHIVE_ORDER = True
 
 # Uncomment what ever you want to use
 #GOOGLE_ANALYTICS = 'XX-XXXXXXX-XX'
