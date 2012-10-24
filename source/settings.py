@@ -27,7 +27,7 @@ TYPOGRIFY = True
 
 # I like to have ``Archives`` in the main menu.
 MENUITEMS = (
-    ('Archives', '{0}/archives.html'.format(SITEURL)),
+    ('Archives', 'archives.html'),
 )
 
 

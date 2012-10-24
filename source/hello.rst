@@ -5,5 +5,5 @@ HELLO
 :author: guglielmo
 :category: blog
 
-This is a marvelous test.
+This is a marvelous test. It can be really the start of something.
 
