@@ -13,19 +13,17 @@ def pelican():
     local('pelican . -o ../ -s settings.py')
 
 
-def push(commit_message):
+def push():
     """Commits the current changes """
     with lcd('..'):
-        local('git add .')
-        with settings(warn_only=True):
-            local('git commit -am "{0}"'.format(commit_message))
+        local('git add . && git commit')
         local('git push origin master')
 
-def publish(commit_message):
+def publish():
     
     # regenerate output
     pelican()
 
     """Re-generates the blog, commits and pushes to github."""
-    push(commit_message)
+    push()
     
