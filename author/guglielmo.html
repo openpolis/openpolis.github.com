@@ -80,17 +80,17 @@ by <a class="url fn" href=".././author/guglielmo.html">guglielmo</a>
 <p>It is a <a class="reference external" href="https://github.com/getpelican/pelican">pelican</a>-based blog and we write the articles as simple <a class="reference external" href="http://daringfireball.net/projects/markdown/syntax">Markdown</a> or <a class="reference external" href="http://docutils.sourceforge.net/docs/user/rst/quickref.html">ReStructured</a> text&nbsp;files.</p>
 <div class="section" id="installation">
 <h2>Installation</h2>
-<p>Fork <tt class="docutils literal">git&#64;github.com:openpolis/openpolis.github.com.git</tt> to your github&nbsp;account.</p>
-<p>Use the <tt class="docutils literal"><span class="pre">git&#64;github.com:[account]/[account].github.com.git</span></tt> naming convention to have the
+<p>You can install this solution for yourself.
+Fork <tt class="docutils literal">git&#64;github.com:openpolis/openpolis.github.com.git</tt> to your github account.
+Use the <tt class="docutils literal"><span class="pre">git&#64;github.com:[account]/[account].github.com.git</span></tt> naming convention to have the
 html pages hosted automagically on github at <tt class="docutils literal"><span class="pre">http://[account].github.com</span></tt>.</p>
-<p>Follow these&nbsp;instructions:</p>
-<pre class="literal-block">
-mkvirtualenv [YOUR BLOG NAME]
-git clone [YOUR GIT FORK] [YOUR BLOG NAME]
-cd [YOUR BLOG NAME]/source
-setvirtualenvproject
-pip install -r requirements
-</pre>
+<p>Now, follow these&nbsp;instructions:</p>
+<div class="highlight"><pre><span class="nv">$ </span>mkvirtualenv <span class="o">[</span><span class="caps">YOUR</span> <span class="caps">BLOG</span> <span class="caps">NAME</span><span class="o">]</span>
+<span class="nv">$ </span>git clone <span class="o">[</span><span class="caps">YOUR</span> <span class="caps">GIT</span> <span class="caps">FORK</span><span class="o">]</span> <span class="o">[</span><span class="caps">YOUR</span> <span class="caps">BLOG</span> <span class="caps">NAME</span><span class="o">]</span>
+<span class="nv">$ </span><span class="nb">cd</span> <span class="o">[</span><span class="caps">YOUR</span> <span class="caps">BLOG</span> <span class="caps">NAME</span><span class="o">]</span>/source
+<span class="nv">$ </span>setvirtualenvproject
+<span class="nv">$ </span>pip install -r requirements
+</pre></div>
 <p>Read the <tt class="docutils literal">settings.py</tt> file, to adapt the blog to your context.
 You can select one among a set of pre-default themes, as a starting point for your customisations.
 You can activate the <a class="reference external" href="http://disqus.com/">disqus</a> comments, <a class="reference external" href="http://jeffcroft.com/blog/2007/may/29/typogrify-easily-produce-web-typography-doesnt-suc/">tipogrify</a> enhancements, google analytics, twitter and github&nbsp;links.</p>
@@ -98,45 +98,42 @@ You can activate the <a class="reference external" href="http://disqus.com/">dis
 <div class="section" id="usage">
 <h2>Usage</h2>
 <p>To rebuild the html&nbsp;code:</p>
-<pre class="literal-block">
-fab pelican
-</pre>
+<div class="highlight"><pre><span class="nv">$ </span>fab pelican
+</pre></div>
 <p>to publish the html to&nbsp;github:</p>
-<pre class="literal-block">
-fab push
-</pre>
+<div class="highlight"><pre><span class="nv">$ </span>fab push
+</pre></div>
 <p>to compile and push at&nbsp;once:</p>
-<pre class="literal-block">
-fab publish
-</pre>
+<div class="highlight"><pre><span class="nv">$ </span>fab publish
+</pre></div>
 </div>
 <div class="section" id="notes">
 <h2>Notes</h2>
 <p>This is the directory&nbsp;tree:</p>
 <pre class="literal-block">
 ./
-|- CNAME
-|- index.html
-|- author
-|  |- guglielmo.html
-|  |- danielef.html
-|- categories.html
-|- category
-|  |- python.html
-|  |- rest-api.html
-| ...
-|- source
-   |- fabfile.py
-   |- requirements.txt
-   |- settings.py
-   |- README.rst
-   |- first.post.rst
+ |- CNAME
+ |- index.html
+ |- author
+ |  |- guglielmo.html
+ |  |- danielef.html
+ |- categories.html
+ |- category
+ |  |- python.html
+ |  |- rest-api.html
+ | ...
+ |- source
+    |- fabfile.py
+    |- requirements.txt
+    |- settings.py
+    |- README.rst
+    |- first.post.rst
 </pre>
 <p><a class="reference external" href="https://github.com/fabric/fabric">Fabric</a> is used to manage the &#8216;compile/push/publish&#8217;&nbsp;tasks.</p>
 <p>Activating the virtualenv with <tt class="docutils literal">workon</tt>, places you inside the source folder, where the <tt class="docutils literal">fabfile.py</tt> file lives.
 That enables you to use the <tt class="docutils literal">fab</tt> tasks.</p>
 <p>Note that the output folder is above the source folder. All output is removed before a rebuild,
-the source directory is excluded. This is obtained through this <tt class="docutils literal">fab</tt> task</p>
+the source directory is excluded. This is obtained through this <tt class="docutils literal">fab</tt> task:</p>
 <div class="highlight"><pre><span class="k">with</span> <span class="n">lcd</span><span class="p">(</span><span class="s">&#39;..&#39;</span><span class="p">):</span>
   <span class="n">local</span><span class="p">(</span><span class="s">&#39;find * -maxdepth 0 ! -name source -print0 | xargs -0n1 rm -rf&#39;</span><span class="p">)</span>
   <span class="n">local</span><span class="p">(</span><span class="s">&#39;touch <span class="caps">CNAME</span>; echo lab.openpolis.it &gt;&gt; <span class="caps">CNAME</span>&#39;</span><span class="p">)</span>
@@ -199,7 +196,7 @@ the source directory is excluded. This is obtained through this <tt class="docut
                 </li>
                 
                 
-                <li><a href=".././category/blog-pelican.html">blog pelican</a></li>
+                <li><a href=".././category/blog-pelican.html">blog, pelican</a></li>
                 
                 <li><a href=".././category/misc.html">misc</a></li>
                                    

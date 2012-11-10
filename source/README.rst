@@ -4,7 +4,7 @@ ABOUT THIS BLOG
 
 :date: 2012-11-10
 :author: guglielmo
-:category: blog pelican
+:category: blog, pelican
 
 This is the technical blog here at Openpolis_. It hosts articles written by our technical staff, while facing and possibly solving problems during the day to day operations.
 
@@ -14,18 +14,20 @@ It is a pelican_-based blog and we write the articles as simple Markdown_ or ReS
 
 Installation
 ============
+You can install this solution for yourself.
 Fork ``git@github.com:openpolis/openpolis.github.com.git`` to your github account.
-
 Use the ``git@github.com:[account]/[account].github.com.git`` naming convention to have the
 html pages hosted automagically on github at ``http://[account].github.com``.
 
-Follow these instructions::
+Now, follow these instructions:
 
-    mkvirtualenv [YOUR BLOG NAME]
-    git clone [YOUR GIT FORK] [YOUR BLOG NAME]
-    cd [YOUR BLOG NAME]/source
-    setvirtualenvproject
-    pip install -r requirements
+.. sourcecode:: sh
+
+    $ mkvirtualenv [YOUR BLOG NAME]
+    $ git clone [YOUR GIT FORK] [YOUR BLOG NAME]
+    $ cd [YOUR BLOG NAME]/source
+    $ setvirtualenvproject
+    $ pip install -r requirements
     
 
 Read the ``settings.py`` file, to adapt the blog to your context.
@@ -34,17 +36,23 @@ You can activate the disqus_ comments, tipogrify_ enhancements, google analytics
 
 Usage
 =====
-To rebuild the html code::
+To rebuild the html code:
 
-    fab pelican
+.. sourcecode:: sh
 
-to publish the html to github::
+    $ fab pelican
 
-    fab push
+to publish the html to github:
+
+.. sourcecode:: sh
+
+    $ fab push
     
-to compile and push at once::
+to compile and push at once:
 
-    fab publish
+.. sourcecode:: sh
+
+    $ fab publish
   
 Notes
 =====
@@ -52,22 +60,22 @@ Notes
 This is the directory tree::
   
     ./
-    |- CNAME
-    |- index.html
-    |- author
-    |  |- guglielmo.html
-    |  |- danielef.html
-    |- categories.html
-    |- category
-    |  |- python.html
-    |  |- rest-api.html
-    | ...
-    |- source
-       |- fabfile.py
-       |- requirements.txt
-       |- settings.py
-       |- README.rst
-       |- first.post.rst
+     |- CNAME
+     |- index.html
+     |- author
+     |  |- guglielmo.html
+     |  |- danielef.html
+     |- categories.html
+     |- category
+     |  |- python.html
+     |  |- rest-api.html
+     | ...
+     |- source
+        |- fabfile.py
+        |- requirements.txt
+        |- settings.py
+        |- README.rst
+        |- first.post.rst
     
 Fabric_ is used to manage the 'compile/push/publish' tasks.
 
@@ -75,7 +83,7 @@ Activating the virtualenv with ``workon``, places you inside the source folder, 
 That enables you to use the ``fab`` tasks.
 
 Note that the output folder is above the source folder. All output is removed before a rebuild, 
-the source directory is excluded. This is obtained through this ``fab`` task
+the source directory is excluded. This is obtained through this ``fab`` task:
 
 .. sourcecode:: python
 
