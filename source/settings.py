@@ -7,6 +7,7 @@ SITEURL = 'http://openpolis.github.com'
 TIMEZONE = 'Europe/Rome'
 
 DEFAULT_LANG = 'en'
+LOCALE = 'en_GB'
 
 # Blogroll
 LINKS =  (('Openpolis', 'http://www.openpolis.it'),
@@ -23,7 +24,7 @@ REVERSE_ARCHIVE_ORDER = True
 
 # clone pelican-themes from github onto your hard disk
 PELICAN_THEMES_PATH = '/Users/guglielmo/Workspace/pelican-themes/'
-THEME = os.path.join(PELICAN_THEMES_PATH, 'tuxlite_tbs')
+THEME = os.path.join(PELICAN_THEMES_PATH, 'tuxlite_op')
 
 # setting this, activates the DISQUS comments
 DISQUS_SITENAME = 'openpolislab'

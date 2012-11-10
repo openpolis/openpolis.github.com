@@ -48,12 +48,40 @@ to compile and push at once::
   
 Notes
 =====
+
+This is the directory tree::
+  
+    ./
+    |- CNAME
+    |- index.html
+    |- author
+    |  |- guglielmo.html
+    |  |- danielef.html
+    |- categories.html
+    |- category
+    |  |- python.html
+    |  |- rest-api.html
+    | ...
+    |- source
+       |- fabfile.py
+       |- requirements.txt
+       |- settings.py
+       |- README.rst
+       |- first.post.rst
+    
 Fabric_ is used to manage the 'compile/push/publish' tasks.
 
-Note that the output folder is above the source folder. All output is removed before a rebuild, 
-the source directory is excluded. This is obtained through::
+Activating the virtualenv with ``workon``, places you inside the source folder, where the ``fabfile.py`` file lives.
+That enables you to use the ``fab`` tasks.
 
-    find * -maxdepth 0 ! -name source -print0 | xargs -0n1 rm -rf
+Note that the output folder is above the source folder. All output is removed before a rebuild, 
+the source directory is excluded. This is obtained through this ``fab`` task
+
+.. sourcecode:: python
+
+    with lcd('..'):
+      local('find * -maxdepth 0 ! -name source -print0 | xargs -0n1 rm -rf')
+      local('touch CNAME; echo lab.openpolis.it >> CNAME')
     
 launched on the output directory.
 

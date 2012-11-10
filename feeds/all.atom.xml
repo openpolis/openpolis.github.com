@@ -35,12 +35,35 @@ fab publish
 &lt;/div&gt;
 &lt;div class="section" id="notes"&gt;
 &lt;h2&gt;Notes&lt;/h2&gt;
-&lt;p&gt;&lt;a class="reference external" href="https://github.com/fabric/fabric"&gt;Fabric&lt;/a&gt; is used to manage the &amp;#8216;compile/push/publish&amp;#8217;&amp;nbsp;tasks.&lt;/p&gt;
-&lt;p&gt;Note that the output folder is above the source folder. All output is removed before a rebuild,
-the source directory is excluded. This is obtained&amp;nbsp;through:&lt;/p&gt;
+&lt;p&gt;This is the directory&amp;nbsp;tree:&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
-find * -maxdepth 0 ! -name source -print0 | xargs -0n1 rm -rf
+./
+|- CNAME
+|- index.html
+|- author
+|  |- guglielmo.html
+|  |- danielef.html
+|- categories.html
+|- category
+|  |- python.html
+|  |- rest-api.html
+| ...
+|- source
+   |- fabfile.py
+   |- requirements.txt
+   |- settings.py
+   |- README.rst
+   |- first.post.rst
 &lt;/pre&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://github.com/fabric/fabric"&gt;Fabric&lt;/a&gt; is used to manage the &amp;#8216;compile/push/publish&amp;#8217;&amp;nbsp;tasks.&lt;/p&gt;
+&lt;p&gt;Activating the virtualenv with &lt;tt class="docutils literal"&gt;workon&lt;/tt&gt;, places you inside the source folder, where the &lt;tt class="docutils literal"&gt;fabfile.py&lt;/tt&gt; file lives.
+That enables you to use the &lt;tt class="docutils literal"&gt;fab&lt;/tt&gt; tasks.&lt;/p&gt;
+&lt;p&gt;Note that the output folder is above the source folder. All output is removed before a rebuild,
+the source directory is excluded. This is obtained through this &lt;tt class="docutils literal"&gt;fab&lt;/tt&gt; task&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="n"&gt;lcd&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;..&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+  &lt;span class="n"&gt;local&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;find * -maxdepth 0 ! -name source -print0 | xargs -0n1 rm -rf&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="n"&gt;local&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;touch &lt;span class="caps"&gt;CNAME&lt;/span&gt;; echo lab.openpolis.it &amp;gt;&amp;gt; &lt;span class="caps"&gt;CNAME&lt;/span&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;launched on the output&amp;nbsp;directory.&lt;/p&gt;
 &lt;/div&gt;
 </summary></entry><entry><title>BLOG TODO LIST</title><link href="http://openpolis.github.com/blog-todo-list.html" rel="alternate"></link><updated>2012-09-17T19:02:00+02:00</updated><author><name>danielef</name></author><id>tag:openpolis.github.com,2012-09-17:blog-todo-list.html</id><summary type="html">&lt;ul class="simple"&gt;

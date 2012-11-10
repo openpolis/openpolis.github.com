@@ -65,7 +65,7 @@
     <div class='article'>
         <div class="content-title">
             <a href="./about-this-blog.html"><h1><span class="caps">ABOUT</span> <span class="caps">THIS</span>&nbsp;<span class="caps">BLOG</span></h1></a>
-            Sab 10 Novembre 2012
+            Sat 10 November 2012
 
 
 by <a class="url fn" href="./author/guglielmo.html">guglielmo</a>
@@ -112,12 +112,35 @@ fab publish
 </div>
 <div class="section" id="notes">
 <h2>Notes</h2>
-<p><a class="reference external" href="https://github.com/fabric/fabric">Fabric</a> is used to manage the &#8216;compile/push/publish&#8217;&nbsp;tasks.</p>
-<p>Note that the output folder is above the source folder. All output is removed before a rebuild,
-the source directory is excluded. This is obtained&nbsp;through:</p>
+<p>This is the directory&nbsp;tree:</p>
 <pre class="literal-block">
-find * -maxdepth 0 ! -name source -print0 | xargs -0n1 rm -rf
+./
+|- CNAME
+|- index.html
+|- author
+|  |- guglielmo.html
+|  |- danielef.html
+|- categories.html
+|- category
+|  |- python.html
+|  |- rest-api.html
+| ...
+|- source
+   |- fabfile.py
+   |- requirements.txt
+   |- settings.py
+   |- README.rst
+   |- first.post.rst
 </pre>
+<p><a class="reference external" href="https://github.com/fabric/fabric">Fabric</a> is used to manage the &#8216;compile/push/publish&#8217;&nbsp;tasks.</p>
+<p>Activating the virtualenv with <tt class="docutils literal">workon</tt>, places you inside the source folder, where the <tt class="docutils literal">fabfile.py</tt> file lives.
+That enables you to use the <tt class="docutils literal">fab</tt> tasks.</p>
+<p>Note that the output folder is above the source folder. All output is removed before a rebuild,
+the source directory is excluded. This is obtained through this <tt class="docutils literal">fab</tt> task</p>
+<div class="highlight"><pre><span class="k">with</span> <span class="n">lcd</span><span class="p">(</span><span class="s">&#39;..&#39;</span><span class="p">):</span>
+  <span class="n">local</span><span class="p">(</span><span class="s">&#39;find * -maxdepth 0 ! -name source -print0 | xargs -0n1 rm -rf&#39;</span><span class="p">)</span>
+  <span class="n">local</span><span class="p">(</span><span class="s">&#39;touch <span class="caps">CNAME</span>; echo lab.openpolis.it &gt;&gt; <span class="caps">CNAME</span>&#39;</span><span class="p">)</span>
+</pre></div>
 <p>launched on the output&nbsp;directory.</p>
 </div>
 </div>
@@ -136,7 +159,7 @@ find * -maxdepth 0 ! -name source -print0 | xargs -0n1 rm -rf
 
     <div class='article'>
         <a href="./blog-todo-list.html"><h2><span class="caps">BLOG</span> <span class="caps">TODO</span>&nbsp;<span class="caps">LIST</span></h2></a>
-        <div class= "well small"> Lun 17 Settembre 2012
+        <div class= "well small"> Mon 17 September 2012
 
 
 by <a class="url fn" href="./author/danielef.html">danielef</a>

@@ -7,8 +7,10 @@ from fabric.api import lcd, local, settings
 def pelican():
     """Re-generates the output."""
     # remove all but source from upper dir
+    # re-generate CNAME
     with lcd('..'):
         local('find * -maxdepth 0 ! -name source -print0 | xargs -0n1 rm -rf')
+        local('touch CNAME; echo lab.openpolis.it >> CNAME')
         
     local('pelican . -o ../ -s settings.py')
 
