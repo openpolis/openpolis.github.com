@@ -55,9 +55,86 @@
 
         <div class="span9">
         
-<ul>
+    <div class='article'>
+        <div class="content-title">
+            <h1><span class="caps">ABOUT</span> <span class="caps">THIS</span>&nbsp;<span class="caps">BLOG</span></h1>
+            Sab 10 Novembre 2012
 
-</ul>
+
+by <a class="url fn" href="./author/guglielmo.html">guglielmo</a>
+ 
+
+
+
+
+        </div>
+	
+        <div><p>This is the technical blog here at <a class="reference external" href="http://www.openpolis.it">Openpolis</a>. It hosts articles written by our technical staff, while facing and possibly solving problems during the day to day&nbsp;operations.</p>
+<p>It is a <a class="reference external" href="https://github.com/getpelican/pelican">pelican</a>-based blog and we write the articles as simple <a class="reference external" href="http://daringfireball.net/projects/markdown/syntax">Markdown</a> or <a class="reference external" href="http://docutils.sourceforge.net/docs/user/rst/quickref.html">ReStructured</a> text&nbsp;files.</p>
+<div class="section" id="installation">
+<h2>Installation</h2>
+<p>Fork <tt class="docutils literal">git&#64;github.com:openpolis/openpolis.github.com.git</tt> to your github&nbsp;account.</p>
+<p>Use the <tt class="docutils literal"><span class="pre">git&#64;github.com:[account]/[account].github.com.git</span></tt> naming convention to
+publish the html page in the github&nbsp;pages.</p>
+<p>Follow these&nbsp;instructions:</p>
+<pre class="literal-block">
+mkvirtualenv [YOUR BLOG NAME]
+git clone [YOUR GIT FORK] [YOUR BLOG NAME]
+cd [YOUR BLOG NAME]/source
+setvirtualenvproject
+pip install -r requirements
+</pre>
+<p>Read the <tt class="docutils literal">settings.py</tt> file, to adapt the blog to your context.
+You can select one among a set of pre-default themes, as a starting point for your customisations.
+You can activate the <a class="reference external" href="http://disqus.com/">disqus</a> comments, <a class="reference external" href="http://jeffcroft.com/blog/2007/may/29/typogrify-easily-produce-web-typography-doesnt-suc/">tipogrify</a> enhancements, google analytics, twitter and github&nbsp;links.</p>
+</div>
+<div class="section" id="usage">
+<h2>Usage</h2>
+<p>To rebuild the html&nbsp;code:</p>
+<pre class="literal-block">
+fab pelican
+</pre>
+<p>to publish the html to&nbsp;github:</p>
+<pre class="literal-block">
+fab push
+</pre>
+<p>to compile and push at&nbsp;once:</p>
+<pre class="literal-block">
+fab publish
+</pre>
+</div>
+<div class="section" id="notes">
+<h2>Notes</h2>
+<p><a class="reference external" href="https://github.com/fabric/fabric">Fabric</a> is used to manage the &#8216;compile/push/publish&#8217;&nbsp;tasks.</p>
+<p>Note that the output folder is above the source folder. All output is removed before a rebuild,
+the source directory is excluded. This is obtained&nbsp;through:</p>
+<pre class="literal-block">
+find * -maxdepth 0 ! -name source -print0 | xargs -0n1 rm -rf
+</pre>
+<p>launched on the output&nbsp;directory.</p>
+</div>
+</div>
+	
+        <hr>
+    	   
+        <h2>Comments</h2>
+	
+<a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="guille">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+
+	
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'openpolislab'; 
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+    </div>
 
         </div>
         

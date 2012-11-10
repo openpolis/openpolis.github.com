@@ -1,10 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Openpolis Lab</title><link href="http://openpolis.github.com/" rel="alternate"></link><link href="http://openpolis.github.com/feeds/all-en.atom.xml" rel="self"></link><id>http://openpolis.github.com/</id><updated>2012-09-17T19:02:00+02:00</updated><entry><title>BLOG TODO LIST</title><link href="http://openpolis.github.com/blog-todo-list.html" rel="alternate"></link><updated>2012-09-17T19:02:00+02:00</updated><author><name>danielef</name></author><id>tag:openpolis.github.com,2012-09-17:blog-todo-list.html</id><summary type="html">&lt;ul class="simple"&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Openpolis Lab</title><link href="http://openpolis.github.com/" rel="alternate"></link><link href="http://openpolis.github.com/feeds/all-en.atom.xml" rel="self"></link><id>http://openpolis.github.com/</id><updated>2012-11-10T00:00:00+01:00</updated><entry><title>ABOUT THIS BLOG</title><link href="http://openpolis.github.com/about-this-blog.html" rel="alternate"></link><updated>2012-11-10T00:00:00+01:00</updated><author><name>guglielmo</name></author><id>tag:openpolis.github.com,2012-11-10:about-this-blog.html</id><summary type="html">&lt;p&gt;This is the technical blog here at &lt;a class="reference external" href="http://www.openpolis.it"&gt;Openpolis&lt;/a&gt;. It hosts articles written by our technical staff, while facing and possibly solving problems during the day to day&amp;nbsp;operations.&lt;/p&gt;
+&lt;p&gt;It is a &lt;a class="reference external" href="https://github.com/getpelican/pelican"&gt;pelican&lt;/a&gt;-based blog and we write the articles as simple &lt;a class="reference external" href="http://daringfireball.net/projects/markdown/syntax"&gt;Markdown&lt;/a&gt; or &lt;a class="reference external" href="http://docutils.sourceforge.net/docs/user/rst/quickref.html"&gt;ReStructured&lt;/a&gt; text&amp;nbsp;files.&lt;/p&gt;
+&lt;div class="section" id="installation"&gt;
+&lt;h2&gt;Installation&lt;/h2&gt;
+&lt;p&gt;Fork &lt;tt class="docutils literal"&gt;git&amp;#64;github.com:openpolis/openpolis.github.com.git&lt;/tt&gt; to your github&amp;nbsp;account.&lt;/p&gt;
+&lt;p&gt;Use the &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;git&amp;#64;github.com:[account]/[account].github.com.git&lt;/span&gt;&lt;/tt&gt; naming convention to
+publish the html page in the github&amp;nbsp;pages.&lt;/p&gt;
+&lt;p&gt;Follow these&amp;nbsp;instructions:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+mkvirtualenv [YOUR BLOG NAME]
+git clone [YOUR GIT FORK] [YOUR BLOG NAME]
+cd [YOUR BLOG NAME]/source
+setvirtualenvproject
+pip install -r requirements
+&lt;/pre&gt;
+&lt;p&gt;Read the &lt;tt class="docutils literal"&gt;settings.py&lt;/tt&gt; file, to adapt the blog to your context.
+You can select one among a set of pre-default themes, as a starting point for your customisations.
+You can activate the &lt;a class="reference external" href="http://disqus.com/"&gt;disqus&lt;/a&gt; comments, &lt;a class="reference external" href="http://jeffcroft.com/blog/2007/may/29/typogrify-easily-produce-web-typography-doesnt-suc/"&gt;tipogrify&lt;/a&gt; enhancements, google analytics, twitter and github&amp;nbsp;links.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="usage"&gt;
+&lt;h2&gt;Usage&lt;/h2&gt;
+&lt;p&gt;To rebuild the html&amp;nbsp;code:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+fab pelican
+&lt;/pre&gt;
+&lt;p&gt;to publish the html to&amp;nbsp;github:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+fab push
+&lt;/pre&gt;
+&lt;p&gt;to compile and push at&amp;nbsp;once:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+fab publish
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class="section" id="notes"&gt;
+&lt;h2&gt;Notes&lt;/h2&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://github.com/fabric/fabric"&gt;Fabric&lt;/a&gt; is used to manage the &amp;#8216;compile/push/publish&amp;#8217;&amp;nbsp;tasks.&lt;/p&gt;
+&lt;p&gt;Note that the output folder is above the source folder. All output is removed before a rebuild,
+the source directory is excluded. This is obtained&amp;nbsp;through:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+find * -maxdepth 0 ! -name source -print0 | xargs -0n1 rm -rf
+&lt;/pre&gt;
+&lt;p&gt;launched on the output&amp;nbsp;directory.&lt;/p&gt;
+&lt;/div&gt;
+</summary></entry><entry><title>BLOG TODO LIST</title><link href="http://openpolis.github.com/blog-todo-list.html" rel="alternate"></link><updated>2012-09-17T19:02:00+02:00</updated><author><name>danielef</name></author><id>tag:openpolis.github.com,2012-09-17:blog-todo-list.html</id><summary type="html">&lt;ul class="simple"&gt;
 &lt;li&gt;refine blog deploy flow (make/fab&amp;nbsp;file)&lt;/li&gt;
 &lt;li&gt;make a&amp;nbsp;theme&lt;/li&gt;
 &lt;li&gt;add&amp;nbsp;links&lt;/li&gt;
 &lt;li&gt;disqus?&lt;/li&gt;
 &lt;li&gt;google&amp;nbsp;analytics?&lt;/li&gt;
 &lt;/ul&gt;
-</summary></entry><entry><title>HELLO</title><link href="http://openpolis.github.com/hello.html" rel="alternate"></link><updated>2012-02-20T00:00:00+01:00</updated><author><name>guglielmo</name></author><id>tag:openpolis.github.com,2012-02-20:hello.html</id><summary type="html">&lt;p&gt;This is a marvelous test. It can be really the start of&amp;nbsp;something.&lt;/p&gt;
 </summary></entry></feed>
