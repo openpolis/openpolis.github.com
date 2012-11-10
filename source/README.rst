@@ -17,7 +17,7 @@ Installation
 Fork ``git@github.com:openpolis/openpolis.github.com.git`` to your github account.
 
 Use the ``git@github.com:[account]/[account].github.com.git`` naming convention to have the
-html pages hosted automagically on github at http://[account].github.com.
+html pages hosted automagically on github at ``http://[account].github.com``.
 
 Follow these instructions::
 
