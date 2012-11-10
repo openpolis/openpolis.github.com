@@ -4,8 +4,8 @@
 &lt;div class="section" id="installation"&gt;
 &lt;h2&gt;Installation&lt;/h2&gt;
 &lt;p&gt;Fork &lt;tt class="docutils literal"&gt;git&amp;#64;github.com:openpolis/openpolis.github.com.git&lt;/tt&gt; to your github&amp;nbsp;account.&lt;/p&gt;
-&lt;p&gt;Use the &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;git&amp;#64;github.com:[account]/[account].github.com.git&lt;/span&gt;&lt;/tt&gt; naming convention to
-publish the html page in the github&amp;nbsp;pages.&lt;/p&gt;
+&lt;p&gt;Use the &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;git&amp;#64;github.com:[account]/[account].github.com.git&lt;/span&gt;&lt;/tt&gt; naming convention to have the
+html pages hosted automagically on github at &lt;a class="reference external" href="http://[account].github.com"&gt;http://[account].github.com&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Follow these&amp;nbsp;instructions:&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
 mkvirtualenv [YOUR BLOG NAME]
