@@ -14,8 +14,10 @@ It is a pelican_-based blog and we write the articles as simple Markdown_ or ReS
 
 Installation
 ============
-You can install this solution for yourself.
-Fork ``git@github.com:openpolis/openpolis.github.com.git`` to your github account.
+You can install this solution for yourself!
+Fork ``git@github.com:openpolis/openpolis.github.com.git`` to your github account and clone the ``cloneable`` tag,
+to have an almost empty blog.
+
 Use the ``git@github.com:[account]/[account].github.com.git`` naming convention to have the
 html pages hosted automagically on `github's user or organization pages`__ at ``http://[account].github.com``.
 
