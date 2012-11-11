@@ -7,7 +7,7 @@ SITEURL = 'http://openpolis.github.com'
 TIMEZONE = 'Europe/Rome'
 
 DEFAULT_LANG = 'en'
-LOCALE = 'en_GB'
+LOCALE = ('en_GB', 'it_IT')
 
 # Blogroll
 LINKS =  (('Openpolis', 'http://www.openpolis.it'),
@@ -38,8 +38,10 @@ TYPOGRIFY = True
 
 # I like to have ``Archives`` in the main menu.
 MENUITEMS = (
-    ('Archives', 'archives.html'),
 )
+
+TAG_CLOUD_STEPS = 4
+TAG_CLOUD_MAX_ITEMS  = 100
 
 
 
