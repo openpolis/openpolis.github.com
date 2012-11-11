@@ -3,7 +3,6 @@
 :category: blog
 :tags: pelican, python
 :slug: about-this-blog
-:lang: en
 :title: About this blog
 
 This is the technical blog here at Openpolis_. It hosts articles written by our technical staff, while facing and possibly solving problems during the day to day operations.
