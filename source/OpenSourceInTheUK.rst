@@ -17,7 +17,7 @@ The manual is an interesting reading in itself, but the `Open Source`_ section i
 Basically, the UK government is suggesting to use open source software  
 for operating systems, networking software, web servers, databases and programming languages.
 
-The choice is motivated on the quality of the overall development and maintenance process, not on economic grounds.
+The choice is based on the quality of the overall development and maintenance process, not on economic grounds.
 
 .. _`Service Design Manual`: https://www.gov.uk/service-manual
 .. _`Digital by Default Service Standard`: https://www.gov.uk/service-manual/digital-by-default
