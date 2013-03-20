@@ -7,4 +7,24 @@ digital services, &amp;#8220;so good, that people prefer to use&amp;nbsp;them&am
 &lt;p&gt;Basically, the &lt;span class="caps"&gt;UK&lt;/span&gt; government is suggesting to use open source software
 for operating systems, networking software, web servers, databases and programming&amp;nbsp;languages.&lt;/p&gt;
 &lt;p&gt;The choice is motivated on the quality of the overall development and maintenance process, not on economic&amp;nbsp;grounds.&lt;/p&gt;
+</summary><category term="politics"></category><category term="open source"></category></entry><entry><title>Bureaucrats like Github</title><link href="http://lab.openpolis.it/bureaucrats-like-github.html" rel="alternate"></link><updated>2013-03-15T11:00:00+01:00</updated><author><name>guglielmo</name></author><id>tag:lab.openpolis.it,2013-03-15:bureaucrats-like-github.html</id><summary type="html">&lt;p&gt;A &lt;a class="reference external" href="http://radar.oreilly.com/2013/03/github-government-bureaucat-open-source.html?utm_source=feedburner&amp;amp;utm_medium=feed&amp;amp;utm_campaign=Feed%3A+oreilly%2Fradar%2Fatom+(O'Reilly+Radar)"&gt;post&lt;/a&gt; on &lt;a class="reference external" href="http://radar.oreilly.com"&gt;Oreilly Radar&lt;/a&gt; informs us that &lt;a href="#id1"&gt;&lt;span class="problematic" id="id2"&gt;Github_&lt;/span&gt;&lt;/a&gt; is trending as the social-repository of choice for governments and public institutions
+who want to publish data, standards and source&amp;nbsp;code.&lt;/p&gt;
+&lt;p&gt;Some remarkable&amp;nbsp;examples:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;span class="caps"&gt;US&lt;/span&gt; - &lt;a class="reference external" href="https://github.com/WhiteHouse"&gt;https://github.com/WhiteHouse&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class="caps"&gt;NASA&lt;/span&gt; - &lt;a class="reference external" href="https://github.com/nasa"&gt;https://github.com/nasa&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class="caps"&gt;UK&lt;/span&gt; - &lt;a class="reference external" href="https://github.com/alphagov"&gt;https://github.com/alphagov&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Canada - &lt;a class="reference external" href="https://github.com/pwgsc"&gt;https://github.com/pwgsc&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Finlandia - &lt;a class="reference external" href="https://github.com/avoinministerio"&gt;https://github.com/avoinministerio&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Buenos Aires - &lt;a class="reference external" href="https://github.com/gcba"&gt;https://github.com/gcba&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Github also destined an evangelist to the task.
+The objective: change the way governments actually face (and solve) &lt;span class="caps"&gt;ICT&lt;/span&gt; problems, studying similar solutions in the social repository,
+and implementing from scratch only when really&amp;nbsp;required.&lt;/p&gt;
+&lt;div class="system-messages section"&gt;
+&lt;h2&gt;Docutils System&amp;nbsp;Messages&lt;/h2&gt;
+&lt;div class="system-message" id="id1"&gt;
+&lt;p class="system-message-title"&gt;System Message: &lt;span class="caps"&gt;ERROR&lt;/span&gt;/3 (&lt;tt class="docutils"&gt;/Users/guglielmo/Workspace/openpolis.github.com/source/Draft.rst&lt;/tt&gt;, line 10); &lt;em&gt;&lt;a href="#id2"&gt;backlink&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+Unknown target name: &amp;#8220;github&amp;#8221;.&lt;/div&gt;
+&lt;/div&gt;
 </summary><category term="politics"></category><category term="open source"></category></entry></feed>
