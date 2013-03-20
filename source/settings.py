@@ -3,7 +3,7 @@ import os
 
 AUTHOR = u'Openpolis'
 SITENAME = u'Openpolis Lab'
-SITEURL = 'http://openpolis.github.com'
+SITEURL = 'http://lab.openpolis.it'
 TIMEZONE = 'Europe/Rome'
 
 DEFAULT_LANG = 'en'

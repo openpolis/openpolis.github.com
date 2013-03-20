@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Openpolis Lab</title><link href="http://lab.openpolis.it/" rel="alternate"></link><link href="http://lab.openpolis.it/feeds/reporting.atom.xml" rel="self"></link><id>http://lab.openpolis.it/</id><updated>2013-03-20T11:16:00+01:00</updated><entry><title>OpenSource in the UK</title><link href="http://lab.openpolis.it/opensource-in-the-uk.html" rel="alternate"></link><updated>2013-03-20T11:16:00+01:00</updated><author><name>guglielmo</name></author><id>tag:lab.openpolis.it,2013-03-20:opensource-in-the-uk.html</id><summary type="html">&lt;p&gt;The &lt;span class="caps"&gt;UK&lt;/span&gt; government issued a beta version of the &lt;a class="reference external" href="https://www.gov.uk/service-manual"&gt;Service Design Manual&lt;/a&gt;, stating guidelines on
+how to design digital service according to the &lt;a class="reference external" href="https://www.gov.uk/service-manual/digital-by-default"&gt;Digital by Default Service Standard&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Setting a digital service standard is part of the &lt;a class="reference external" href="http://publications.cabinetoffice.gov.uk/digital/"&gt;Governmental Digital Strategy&lt;/a&gt;, which aims at producing public
+digital services, &amp;#8220;so good, that people prefer to use&amp;nbsp;them&amp;#8221;.&lt;/p&gt;
+&lt;p&gt;The manual is an interesting reading in itself, but the &lt;a class="reference external" href="https://www.gov.uk/service-manual/making-software/open-source.html"&gt;Open Source&lt;/a&gt; section is a&amp;nbsp;must.&lt;/p&gt;
+&lt;p&gt;Basically, the &lt;span class="caps"&gt;UK&lt;/span&gt; government is suggesting to use open source software
+for operating systems, networking software, web servers, databases and programming&amp;nbsp;languages.&lt;/p&gt;
+&lt;p&gt;The choice is motivated on the quality of the overall development and maintenance process, not on economic&amp;nbsp;ground.&lt;/p&gt;
+</summary><category term="politics"></category><category term="open source"></category></entry></feed>
