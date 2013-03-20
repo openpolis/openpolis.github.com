@@ -26,4 +26,5 @@ and implementing from scratch only when really required.
 
 .. _post: http://radar.oreilly.com/2013/03/github-government-bureaucat-open-source.html?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+oreilly%2Fradar%2Fatom+(O'Reilly+Radar)
 .. _`Oreilly Radar`: http://radar.oreilly.com
+.. _Github: http://www.github.com
 
