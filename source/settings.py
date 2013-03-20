@@ -5,6 +5,7 @@ AUTHOR = u'Openpolis'
 SITENAME = u'Openpolis Lab'
 SITEURL = 'http://lab.openpolis.it'
 TIMEZONE = 'Europe/Rome'
+COPYRIGHT_YEAR = 2013
 
 DEFAULT_LANG = 'en'
 LOCALE = ('en_GB', 'it_IT')
