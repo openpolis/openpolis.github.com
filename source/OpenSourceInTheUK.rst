@@ -7,7 +7,7 @@ OpenSource in the UK
 :tags: politics, open source
 
 The UK government issued a beta version of the `Service Design Manual`_, stating guidelines on
-how to design digital service according to the `Digital by Default Service Standard`_.
+how to design digital services according to the `Digital by Default Service Standard`_.
 
 Setting a digital service standard is part of the `Governmental Digital Strategy`_, which aims at producing public
 digital services, "so good, that people prefer to use them".
