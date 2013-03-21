@@ -23,6 +23,8 @@ SOCIAL = (('facebook', 'https://www.facebook.com/openpolis'),
 DEFAULT_PAGINATION = 10
 REVERSE_ARCHIVE_ORDER = True
 
+PATH = 'posts'
+
 # clone pelican-themes from github onto your hard disk
 PELICAN_THEMES_PATH = '/Users/guglielmo/Workspace/pelican-themes/'
 THEME = os.path.join(PELICAN_THEMES_PATH, 'tuxlite_op')
@@ -44,7 +46,8 @@ MENUITEMS = (
 TAG_CLOUD_STEPS = 4
 TAG_CLOUD_MAX_ITEMS  = 100
 
-
+FEED_ALL_RSS = 'feeds/all.rss.xml'
+CATEGORY_FEED_RSS = 'feeds/%s.rss.xml'
 
 
 # Uncomment what ever you want to use

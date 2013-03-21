@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Openpolis Lab</title><link>http://lab.openpolis.it/</link><description></description><atom:link href="http://lab.openpolis.it/feeds/reporting.rss.xml" rel="self"></atom:link><lastBuildDate>Wed, 20 Mar 2013 11:16:00 +0100</lastBuildDate><item><title>OpenSource in the UK</title><link>http://lab.openpolis.it/opensource-in-the-uk.html</link><description>&lt;p&gt;The &lt;span class="caps"&gt;UK&lt;/span&gt; government issued a beta version of the &lt;a class="reference external" href="https://www.gov.uk/service-manual"&gt;Service Design Manual&lt;/a&gt;, stating guidelines on
+how to design digital services according to the &lt;a class="reference external" href="https://www.gov.uk/service-manual/digital-by-default"&gt;Digital by Default Service Standard&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Setting a digital service standard is part of the &lt;a class="reference external" href="http://publications.cabinetoffice.gov.uk/digital/"&gt;Governmental Digital Strategy&lt;/a&gt;, which aims at producing public
+digital services, &amp;#8220;so good, that people prefer to use&amp;nbsp;them&amp;#8221;.&lt;/p&gt;
+&lt;p&gt;The manual is an interesting reading in itself, but the &lt;a class="reference external" href="https://www.gov.uk/service-manual/making-software/open-source.html"&gt;Open Source&lt;/a&gt; section is a&amp;nbsp;must.&lt;/p&gt;
+&lt;p&gt;Basically, the &lt;span class="caps"&gt;UK&lt;/span&gt; government is suggesting to use open source software
+for operating systems, networking software, web servers, databases and programming&amp;nbsp;languages.&lt;/p&gt;
+&lt;p&gt;The choice is based on the quality of the overall development and maintenance process, not on economic&amp;nbsp;grounds.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">guglielmo</dc:creator><pubDate>Wed, 20 Mar 2013 11:16:00 +0100</pubDate><guid>tag:lab.openpolis.it,2013-03-20:opensource-in-the-uk.html</guid><category>politics</category><category>open source</category></item><item><title>Bureaucrats like Github</title><link>http://lab.openpolis.it/bureaucrats-like-github.html</link><description>&lt;p&gt;A &lt;a class="reference external" href="http://radar.oreilly.com/2013/03/github-government-bureaucat-open-source.html?utm_source=feedburner&amp;amp;utm_medium=feed&amp;amp;utm_campaign=Feed%3A+oreilly%2Fradar%2Fatom+(O'Reilly+Radar)"&gt;post&lt;/a&gt; on &lt;a class="reference external" href="http://radar.oreilly.com"&gt;Oreilly Radar&lt;/a&gt; informs us that &lt;a class="reference external" href="http://www.github.com"&gt;Github&lt;/a&gt; is trending as the social-repository of choice for governments and public institutions
+who want to publish data, standards and source&amp;nbsp;code.&lt;/p&gt;
+&lt;p&gt;Some remarkable&amp;nbsp;examples:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;span class="caps"&gt;US&lt;/span&gt; - &lt;a class="reference external" href="https://github.com/WhiteHouse"&gt;https://github.com/WhiteHouse&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class="caps"&gt;NASA&lt;/span&gt; - &lt;a class="reference external" href="https://github.com/nasa"&gt;https://github.com/nasa&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class="caps"&gt;UK&lt;/span&gt; - &lt;a class="reference external" href="https://github.com/alphagov"&gt;https://github.com/alphagov&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Canada - &lt;a class="reference external" href="https://github.com/pwgsc"&gt;https://github.com/pwgsc&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Finlandia - &lt;a class="reference external" href="https://github.com/avoinministerio"&gt;https://github.com/avoinministerio&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Buenos Aires - &lt;a class="reference external" href="https://github.com/gcba"&gt;https://github.com/gcba&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Github also destined an evangelist to the task.
+The objective: change the way governments actually face (and solve) &lt;span class="caps"&gt;ICT&lt;/span&gt; problems, studying similar solutions in the social repository,
+and implementing from scratch only when really&amp;nbsp;required.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">guglielmo</dc:creator><pubDate>Fri, 15 Mar 2013 11:00:00 +0100</pubDate><guid>tag:lab.openpolis.it,2013-03-15:bureaucrats-like-github.html</guid><category>politics</category><category>open source</category></item></channel></rss>
