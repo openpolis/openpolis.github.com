@@ -1,5 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Openpolis Lab</title><link href="http://lab.openpolis.it/" rel="alternate"></link><link href="http://lab.openpolis.it/feeds/all.atom.xml" rel="self"></link><id>http://lab.openpolis.it/</id><updated>2013-03-20T11:16:00+01:00</updated><entry><title>OpenSource in the UK</title><link href="http://lab.openpolis.it/opensource-in-the-uk.html" rel="alternate"></link><updated>2013-03-20T11:16:00+01:00</updated><author><name>guglielmo</name></author><id>tag:lab.openpolis.it,2013-03-20:opensource-in-the-uk.html</id><summary type="html">&lt;p&gt;The &lt;span class="caps"&gt;UK&lt;/span&gt; government issued a beta version of the &lt;a class="reference external" href="https://www.gov.uk/service-manual"&gt;Service Design Manual&lt;/a&gt;, stating guidelines on
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Openpolis Lab</title><link href="http://lab.openpolis.it/" rel="alternate"></link><link href="http://lab.openpolis.it/feeds/all.atom.xml" rel="self"></link><id>http://lab.openpolis.it/</id><updated>2013-04-10T15:30:00+02:00</updated><entry><title>How to install solr on tomcat7, over Ubuntu 12.04</title><link href="http://lab.openpolis.it/how-to-install-solr-on-tomcat7-over-ubuntu-1204.html" rel="alternate"></link><updated>2013-04-10T15:30:00+02:00</updated><author><name>guglielmo</name></author><id>tag:lab.openpolis.it,2013-04-10:how-to-install-solr-on-tomcat7-over-ubuntu-1204.html</id><summary type="html">&lt;div class="section" id="tomcat7"&gt;
+&lt;h2&gt;Tomcat7&lt;/h2&gt;
+&lt;p&gt;Ubuntu 12.04 comes with &lt;a class="reference external" href="http://tomcat.apache.org/"&gt;tomcat&lt;/a&gt; easily installable as a package (you need&amp;nbsp;jdk):&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+apt-get install default-jdk tomcat7 tomcat7-admin tomcat7-user tomcat7-docs
+&lt;/pre&gt;
+&lt;p&gt;Configure access to the web-admin in &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;/etc/tomcat7/tomcat-users.xml&lt;/span&gt;&lt;/tt&gt;:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+&amp;lt;tomcat-users&amp;gt;
+  &amp;lt;role rolename=&amp;quot;manager-gui&amp;quot;/&amp;gt;
+  &amp;lt;user username=&amp;quot;manager&amp;quot; password=&amp;quot;S3krEt&amp;quot; roles=&amp;quot;manager-gui&amp;quot;/&amp;gt;
+&amp;lt;/tomcat-users&amp;gt;
+&lt;/pre&gt;
+&lt;p&gt;The tomcat management console is now accessible, through authentication at &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;http://&lt;span class="caps"&gt;HOST&lt;/span&gt;:8080/manager/html&lt;/span&gt;&lt;/tt&gt;&lt;/p&gt;
+&lt;p&gt;Please, do change username and password in your &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;tomcat-users.xml&lt;/span&gt;&lt;/tt&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="solr"&gt;
+&lt;h2&gt;Solr&lt;/h2&gt;
+&lt;p&gt;It can be useful to have different, isolated instances of &lt;a class="reference external" href="http://lucene.apache.org/solr/"&gt;solr&lt;/a&gt; running, corresponding to different solr versions
+(i.e. 1.2, 1.4,  3.4, &amp;#8230;). One of the instances could be a &lt;em&gt;multicore&lt;/em&gt; solr instance, able to host multiple indexes under a single&amp;nbsp;app.&lt;/p&gt;
+&lt;p&gt;This is possible by creating different &lt;strong&gt;contexts&lt;/strong&gt; inside &lt;tt class="docutils literal"&gt;/etc/tomcat7/Catalina/localhost/&lt;/tt&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;open_parlamento.xml&lt;/strong&gt;:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
+&amp;lt;Context docBase=&amp;quot;/home/solr/open_parlamento/apache-solr-1.4.0.war&amp;quot; debug=&amp;quot;0&amp;quot; crossContext=&amp;quot;true&amp;quot; &amp;gt;
+   &amp;lt;Environment name=&amp;quot;solr/home&amp;quot; type=&amp;quot;java.lang.String&amp;quot; value=&amp;quot;/home/solr/open_parlamento&amp;quot; override=&amp;quot;true&amp;quot; /&amp;gt;
+&amp;lt;/Context&amp;gt;
+&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;open_politici.xml&lt;/strong&gt;:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
+&amp;lt;Context docBase=&amp;quot;/home/solr/open_politici/apache-solr-1.2.0.war&amp;quot; debug=&amp;quot;0&amp;quot; crossContext=&amp;quot;true&amp;quot; &amp;gt;
+   &amp;lt;Environment name=&amp;quot;solr/home&amp;quot; type=&amp;quot;java.lang.String&amp;quot; value=&amp;quot;/home/solr/open_politici&amp;quot; override=&amp;quot;true&amp;quot; /&amp;gt;
+&amp;lt;/Context&amp;gt;
+&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;multicore.xml&lt;/strong&gt;:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
+&amp;lt;Context docBase=&amp;quot;/home/solr/multicore/apache-solr-3.4.0.war&amp;quot; debug=&amp;quot;0&amp;quot; crossContext=&amp;quot;true&amp;quot; &amp;gt;
+   &amp;lt;Environment name=&amp;quot;solr/home&amp;quot; type=&amp;quot;java.lang.String&amp;quot; value=&amp;quot;/home/solr/multicore/cores&amp;quot; override=&amp;quot;true&amp;quot; /&amp;gt;
+&amp;lt;/Context&amp;gt;
+&lt;/pre&gt;
+&lt;p&gt;Create this directory&amp;nbsp;tree:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+/home/solr
+|- open_parlamento
+|  |- apache-solr-1.4.0.war
+|  |- data
+|  |  |- index
+|  |  |  |- ...
+|  |- conf
+|     |- admin-extra.html
+|     |- elevate.xml
+|     |- italian-stopwords.txt
+|     |- mapping-ISOLatin1Accent.txt
+|     |- protwords.txt
+|     |- schema.xml
+|     |- scripts.conf
+|     |- solrconfig.xml
+|     |- spellings.txt
+|     |- stopwords.txt
+|     |- synonyms.txt
+|- open_polis
+|  |- apache-solr-1.2.0.war
+|  |- ...
+|- multicore
+   |- apache-solr.3.4.0.war
+   |- cores
+   |  |- solr.xml
+   |  |- app1
+   |  |  |- conf
+   |  |- app2
+   |  |  |- conf
+   |- data
+      |- app1
+      |  |- index
+      |- app2
+         |- index
+&lt;/pre&gt;
+&lt;dl class="docutils"&gt;
+&lt;dt&gt;Note:&lt;/dt&gt;
+&lt;dd&gt;You need to download the different versions of the solr war from their web site, and you may eventually need to
+download libraries, as pointed in the &lt;tt class="docutils literal"&gt;solrconfig.xml&lt;/tt&gt; file to handle advanced tasks, so &lt;em&gt;your mileage may vary&lt;/em&gt;.&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;p&gt;&lt;strong&gt;solr.xml&lt;/strong&gt; is the configuration file that points to the various cores in the multicore&amp;nbsp;instance:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot; ?&amp;gt;
+&amp;lt;solr persistent=&amp;quot;false&amp;quot; sharedLib=&amp;quot;lib&amp;quot;&amp;gt;
+  &amp;lt;cores adminPath=&amp;quot;/admin/cores&amp;quot; shareSchema=&amp;quot;true&amp;quot;&amp;gt;
+    &amp;lt;core name=&amp;quot;app1&amp;quot;  instanceDir=&amp;quot;app1&amp;quot;  dataDir=&amp;quot;${solr.data.dir:../data}/app1&amp;quot; /&amp;gt;
+    &amp;lt;core name=&amp;quot;app2&amp;quot;  instanceDir=&amp;quot;app2&amp;quot;  dataDir=&amp;quot;${solr.data.dir:../data}/app2&amp;quot; /&amp;gt;
+  &amp;lt;/cores&amp;gt;
+&amp;lt;/solr&amp;gt;
+&lt;/pre&gt;
+&lt;p&gt;The &lt;tt class="docutils literal"&gt;conf&lt;/tt&gt; directories in &lt;tt class="docutils literal"&gt;cores/appX&lt;/tt&gt; are stantard solr conf directories, with all files needed, according to
+the solr&amp;nbsp;version.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="permissions"&gt;
+&lt;h2&gt;Permissions&lt;/h2&gt;
+&lt;p&gt;Tomcat is run by the &lt;tt class="docutils literal"&gt;tomcat7&lt;/tt&gt; user, so all the &lt;tt class="docutils literal"&gt;data&lt;/tt&gt; directories need to be writeable to this&amp;nbsp;user:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+chgrp -R tomcat7 /home/solr/open_parlamento/data
+chmod -R g+w /home/solr/open_parlamento/data
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class="section" id="restart"&gt;
+&lt;h2&gt;Restart&lt;/h2&gt;
+&lt;p&gt;Is needed whenever a tomcat or solr configuration changes. Under&amp;nbsp;ubuntu:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+service tomcat7 restart
+&lt;/pre&gt;
+&lt;p&gt;The applications are visible under &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;http://&lt;span class="caps"&gt;HOST&lt;/span&gt;:8080/APP_NAME&lt;/span&gt;&lt;/tt&gt; where &lt;tt class="docutils literal"&gt;APP_NAME&lt;/tt&gt; is the name of the context file (&lt;tt class="docutils literal"&gt;open_parlamento&lt;/tt&gt;, &lt;tt class="docutils literal"&gt;open_politici&lt;/tt&gt;) or the name of the core (app1,&amp;nbsp;app2).&lt;/p&gt;
+&lt;/div&gt;
+</summary><category term="solr"></category><category term="tomcat"></category><category term="ubuntu"></category></entry><entry><title>OpenSource in the UK</title><link href="http://lab.openpolis.it/opensource-in-the-uk.html" rel="alternate"></link><updated>2013-03-20T11:16:00+01:00</updated><author><name>guglielmo</name></author><id>tag:lab.openpolis.it,2013-03-20:opensource-in-the-uk.html</id><summary type="html">&lt;p&gt;The &lt;span class="caps"&gt;UK&lt;/span&gt; government issued a beta version of the &lt;a class="reference external" href="https://www.gov.uk/service-manual"&gt;Service Design Manual&lt;/a&gt;, stating guidelines on
 how to design digital services according to the &lt;a class="reference external" href="https://www.gov.uk/service-manual/digital-by-default"&gt;Digital by Default Service Standard&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Setting a digital service standard is part of the &lt;a class="reference external" href="http://publications.cabinetoffice.gov.uk/digital/"&gt;Governmental Digital Strategy&lt;/a&gt;, which aims at producing public
 digital services, &amp;#8220;so good, that people prefer to use&amp;nbsp;them&amp;#8221;.&lt;/p&gt;

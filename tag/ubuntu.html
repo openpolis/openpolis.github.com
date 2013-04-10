@@ -56,47 +56,8 @@
 
     <div class='article'>
         <div class="content-title">
-            <a href="../bureaucrats-like-github.html"><h1>Bureaucrats like&nbsp;Github</h1></a>
-            Fri 15 March 2013
-
-by <a class="url fn" href="../author/guglielmo.html">guglielmo</a>
- 
-
-<br/>
-Filed under <a href="../category/reporting.html">reporting</a>
-
- 
-    Tags <a href="../tag/politics.html">politics</a> <a href="../tag/open-source.html">open source</a> 
- 
-        </div>
-        
-        <div><p>A <a class="reference external" href="http://radar.oreilly.com/2013/03/github-government-bureaucat-open-source.html?utm_source=feedburner&amp;utm_medium=feed&amp;utm_campaign=Feed%3A+oreilly%2Fradar%2Fatom+(O'Reilly+Radar)">post</a> on <a class="reference external" href="http://radar.oreilly.com">Oreilly Radar</a> informs us that <a class="reference external" href="http://www.github.com">Github</a> is trending as the social-repository of choice for governments and public institutions
-who want to publish data, standards and source&nbsp;code.</p>
-<p>Some remarkable&nbsp;examples:</p>
-<ul class="simple">
-<li><span class="caps">US</span> - <a class="reference external" href="https://github.com/WhiteHouse">https://github.com/WhiteHouse</a></li>
-<li><span class="caps">NASA</span> - <a class="reference external" href="https://github.com/nasa">https://github.com/nasa</a></li>
-<li><span class="caps">UK</span> - <a class="reference external" href="https://github.com/alphagov">https://github.com/alphagov</a></li>
-<li>Canada - <a class="reference external" href="https://github.com/pwgsc">https://github.com/pwgsc</a></li>
-<li>Finlandia - <a class="reference external" href="https://github.com/avoinministerio">https://github.com/avoinministerio</a></li>
-<li>Buenos Aires - <a class="reference external" href="https://github.com/gcba">https://github.com/gcba</a></li>
-</ul>
-<p>Github also destined an evangelist to the task.
-The objective: change the way governments actually face (and solve) <span class="caps">ICT</span> problems, studying similar solutions in the social repository,
-and implementing from scratch only when really&nbsp;required.</p>
-</div>
-        <hr />
-    </div>
-		
-    
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="../how-to-install-solr-on-tomcat7-over-ubuntu-1204.html"><h2>How to install solr on tomcat7, over Ubuntu&nbsp;12.04</h2></a>
-        <div class= "well small"> Wed 10 April 2013
+            <a href="../how-to-install-solr-on-tomcat7-over-ubuntu-1204.html"><h1>How to install solr on tomcat7, over Ubuntu&nbsp;12.04</h1></a>
+            Wed 10 April 2013
 
 by <a class="url fn" href="../author/guglielmo.html">guglielmo</a>
  
@@ -106,8 +67,10 @@ Filed under <a href="../category/howto.html">howto</a>
 
  
     Tags <a href="../tag/solr.html">solr</a> <a href="../tag/tomcat.html">tomcat</a> <a href="../tag/ubuntu.html">ubuntu</a> 
- </div>
-        <div class="summary"><div class="section" id="tomcat7">
+ 
+        </div>
+        
+        <div><div class="section" id="tomcat7">
 <h2>Tomcat7</h2>
 <p>Ubuntu 12.04 comes with <a class="reference external" href="http://tomcat.apache.org/">tomcat</a> easily installable as a package (you need&nbsp;jdk):</p>
 <pre class="literal-block">
@@ -120,39 +83,115 @@ apt-get install default-jdk tomcat7 tomcat7-admin tomcat7-user tomcat7-docs
   &lt;user username=&quot;manager&quot; password=&quot;S3krEt&quot; roles=&quot;manager-gui&quot;/&gt;
 &lt;/tomcat-users&gt;
 </pre>
-<p>The tomcat management console is now ...</p></div> <a class="btn btn-info xsmall" href="../how-to-install-solr-on-tomcat7-over-ubuntu-1204.html">read more</a></div>
-    </div>	
-				
-    
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="../opensource-in-the-uk.html"><h2>OpenSource in the&nbsp;<span class="caps">UK</span></h2></a>
-        <div class= "well small"> Wed 20 March 2013
-
-by <a class="url fn" href="../author/guglielmo.html">guglielmo</a>
- 
-
-<br/>
-Filed under <a href="../category/reporting.html">reporting</a>
-
- 
-    Tags <a href="../tag/politics.html">politics</a> <a href="../tag/open-source.html">open source</a> 
- </div>
-        <div class="summary"><p>The <span class="caps">UK</span> government issued a beta version of the <a class="reference external" href="https://www.gov.uk/service-manual">Service Design Manual</a>, stating guidelines on
-how to design digital services according to the <a class="reference external" href="https://www.gov.uk/service-manual/digital-by-default">Digital by Default Service Standard</a>.</p>
-<p>Setting a digital service standard is part of the <a class="reference external" href="http://publications.cabinetoffice.gov.uk/digital/">Governmental Digital Strategy</a>, which aims at producing public
-digital services, &#8220;so good, that ...</p> <a class="btn btn-info xsmall" href="../opensource-in-the-uk.html">read more</a></div>
-    </div>	
-				
+<p>The tomcat management console is now accessible, through authentication at <tt class="docutils literal"><span class="pre">http://<span class="caps">HOST</span>:8080/manager/html</span></tt></p>
+<p>Please, do change username and password in your <tt class="docutils literal"><span class="pre">tomcat-users.xml</span></tt>.</p>
+</div>
+<div class="section" id="solr">
+<h2>Solr</h2>
+<p>It can be useful to have different, isolated instances of <a class="reference external" href="http://lucene.apache.org/solr/">solr</a> running, corresponding to different solr versions
+(i.e. 1.2, 1.4,  3.4, &#8230;). One of the instances could be a <em>multicore</em> solr instance, able to host multiple indexes under a single&nbsp;app.</p>
+<p>This is possible by creating different <strong>contexts</strong> inside <tt class="docutils literal">/etc/tomcat7/Catalina/localhost/</tt>.</p>
+<p><strong>open_parlamento.xml</strong>:</p>
+<pre class="literal-block">
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;Context docBase=&quot;/home/solr/open_parlamento/apache-solr-1.4.0.war&quot; debug=&quot;0&quot; crossContext=&quot;true&quot; &gt;
+   &lt;Environment name=&quot;solr/home&quot; type=&quot;java.lang.String&quot; value=&quot;/home/solr/open_parlamento&quot; override=&quot;true&quot; /&gt;
+&lt;/Context&gt;
+</pre>
+<p><strong>open_politici.xml</strong>:</p>
+<pre class="literal-block">
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;Context docBase=&quot;/home/solr/open_politici/apache-solr-1.2.0.war&quot; debug=&quot;0&quot; crossContext=&quot;true&quot; &gt;
+   &lt;Environment name=&quot;solr/home&quot; type=&quot;java.lang.String&quot; value=&quot;/home/solr/open_politici&quot; override=&quot;true&quot; /&gt;
+&lt;/Context&gt;
+</pre>
+<p><strong>multicore.xml</strong>:</p>
+<pre class="literal-block">
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;Context docBase=&quot;/home/solr/multicore/apache-solr-3.4.0.war&quot; debug=&quot;0&quot; crossContext=&quot;true&quot; &gt;
+   &lt;Environment name=&quot;solr/home&quot; type=&quot;java.lang.String&quot; value=&quot;/home/solr/multicore/cores&quot; override=&quot;true&quot; /&gt;
+&lt;/Context&gt;
+</pre>
+<p>Create this directory&nbsp;tree:</p>
+<pre class="literal-block">
+/home/solr
+|- open_parlamento
+|  |- apache-solr-1.4.0.war
+|  |- data
+|  |  |- index
+|  |  |  |- ...
+|  |- conf
+|     |- admin-extra.html
+|     |- elevate.xml
+|     |- italian-stopwords.txt
+|     |- mapping-ISOLatin1Accent.txt
+|     |- protwords.txt
+|     |- schema.xml
+|     |- scripts.conf
+|     |- solrconfig.xml
+|     |- spellings.txt
+|     |- stopwords.txt
+|     |- synonyms.txt
+|- open_polis
+|  |- apache-solr-1.2.0.war
+|  |- ...
+|- multicore
+   |- apache-solr.3.4.0.war
+   |- cores
+   |  |- solr.xml
+   |  |- app1
+   |  |  |- conf
+   |  |- app2
+   |  |  |- conf
+   |- data
+      |- app1
+      |  |- index
+      |- app2
+         |- index
+</pre>
+<dl class="docutils">
+<dt>Note:</dt>
+<dd>You need to download the different versions of the solr war from their web site, and you may eventually need to
+download libraries, as pointed in the <tt class="docutils literal">solrconfig.xml</tt> file to handle advanced tasks, so <em>your mileage may vary</em>.</dd>
+</dl>
+<p><strong>solr.xml</strong> is the configuration file that points to the various cores in the multicore&nbsp;instance:</p>
+<pre class="literal-block">
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+&lt;solr persistent=&quot;false&quot; sharedLib=&quot;lib&quot;&gt;
+  &lt;cores adminPath=&quot;/admin/cores&quot; shareSchema=&quot;true&quot;&gt;
+    &lt;core name=&quot;app1&quot;  instanceDir=&quot;app1&quot;  dataDir=&quot;${solr.data.dir:../data}/app1&quot; /&gt;
+    &lt;core name=&quot;app2&quot;  instanceDir=&quot;app2&quot;  dataDir=&quot;${solr.data.dir:../data}/app2&quot; /&gt;
+  &lt;/cores&gt;
+&lt;/solr&gt;
+</pre>
+<p>The <tt class="docutils literal">conf</tt> directories in <tt class="docutils literal">cores/appX</tt> are stantard solr conf directories, with all files needed, according to
+the solr&nbsp;version.</p>
+</div>
+<div class="section" id="permissions">
+<h2>Permissions</h2>
+<p>Tomcat is run by the <tt class="docutils literal">tomcat7</tt> user, so all the <tt class="docutils literal">data</tt> directories need to be writeable to this&nbsp;user:</p>
+<pre class="literal-block">
+chgrp -R tomcat7 /home/solr/open_parlamento/data
+chmod -R g+w /home/solr/open_parlamento/data
+</pre>
+</div>
+<div class="section" id="restart">
+<h2>Restart</h2>
+<p>Is needed whenever a tomcat or solr configuration changes. Under&nbsp;ubuntu:</p>
+<pre class="literal-block">
+service tomcat7 restart
+</pre>
+<p>The applications are visible under <tt class="docutils literal"><span class="pre">http://<span class="caps">HOST</span>:8080/APP_NAME</span></tt> where <tt class="docutils literal">APP_NAME</tt> is the name of the context file (<tt class="docutils literal">open_parlamento</tt>, <tt class="docutils literal">open_politici</tt>) or the name of the core (app1,&nbsp;app2).</p>
+</div>
+</div>
+        <hr />
+    </div>
+		
             <div class="pagination">
 <ul>
     <li class="prev disabled"><a href="#">&larr; Previous</a></li>
 
-    <li class="active"><a href="../author/guglielmo.html">1</a></li>
+    <li class="active"><a href="../tag/ubuntu.html">1</a></li>
 
     <li class="next disabled"><a href="#">&rarr; Next</a></li>
 

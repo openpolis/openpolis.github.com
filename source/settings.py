@@ -49,7 +49,7 @@ TAG_CLOUD_MAX_ITEMS  = 100
 FEED_ALL_RSS = 'feeds/all.rss.xml'
 CATEGORY_FEED_RSS = 'feeds/%s.rss.xml'
 
-
-# Uncomment what ever you want to use
-#GOOGLE_ANALYTICS = 'XX-XXXXXXX-XX'
-#DISQUS_SITENAME = 'yourdisqushandle'
+# plugins (example)
+#from pelican.plugins import github_activity
+#PLUGINS = [github_activity,]
+#GITHUB_ACTIVITY_FEED = 'https://github.com/openpolis.atom'

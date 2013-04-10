@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Openpolis Lab</title><link href="http://lab.openpolis.it/" rel="alternate"></link><link href="http://lab.openpolis.it/feeds/all-en.atom.xml" rel="self"></link><id>http://lab.openpolis.it/</id><updated>2013-04-10T15:30:00+02:00</updated><entry><title>How to install solr on tomcat7, over Ubuntu 12.04</title><link href="http://lab.openpolis.it/how-to-install-solr-on-tomcat7-over-ubuntu-1204.html" rel="alternate"></link><updated>2013-04-10T15:30:00+02:00</updated><author><name>guglielmo</name></author><id>tag:lab.openpolis.it,2013-04-10:how-to-install-solr-on-tomcat7-over-ubuntu-1204.html</id><summary type="html">&lt;div class="section" id="tomcat7"&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Openpolis Lab</title><link href="http://lab.openpolis.it/" rel="alternate"></link><link href="http://lab.openpolis.it/feeds/howto.atom.xml" rel="self"></link><id>http://lab.openpolis.it/</id><updated>2013-04-10T15:30:00+02:00</updated><entry><title>How to install solr on tomcat7, over Ubuntu 12.04</title><link href="http://lab.openpolis.it/how-to-install-solr-on-tomcat7-over-ubuntu-1204.html" rel="alternate"></link><updated>2013-04-10T15:30:00+02:00</updated><author><name>guglielmo</name></author><id>tag:lab.openpolis.it,2013-04-10:how-to-install-solr-on-tomcat7-over-ubuntu-1204.html</id><summary type="html">&lt;div class="section" id="tomcat7"&gt;
 &lt;h2&gt;Tomcat7&lt;/h2&gt;
 &lt;p&gt;Ubuntu 12.04 comes with &lt;a class="reference external" href="http://tomcat.apache.org/"&gt;tomcat&lt;/a&gt; easily installable as a package (you need&amp;nbsp;jdk):&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
@@ -112,34 +112,4 @@ service tomcat7 restart
 &lt;/pre&gt;
 &lt;p&gt;The applications are visible under &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;http://&lt;span class="caps"&gt;HOST&lt;/span&gt;:8080/APP_NAME&lt;/span&gt;&lt;/tt&gt; where &lt;tt class="docutils literal"&gt;APP_NAME&lt;/tt&gt; is the name of the context file (&lt;tt class="docutils literal"&gt;open_parlamento&lt;/tt&gt;, &lt;tt class="docutils literal"&gt;open_politici&lt;/tt&gt;) or the name of the core (app1,&amp;nbsp;app2).&lt;/p&gt;
 &lt;/div&gt;
-</summary><category term="solr"></category><category term="tomcat"></category><category term="ubuntu"></category></entry><entry><title>OpenSource in the UK</title><link href="http://lab.openpolis.it/opensource-in-the-uk.html" rel="alternate"></link><updated>2013-03-20T11:16:00+01:00</updated><author><name>guglielmo</name></author><id>tag:lab.openpolis.it,2013-03-20:opensource-in-the-uk.html</id><summary type="html">&lt;p&gt;The &lt;span class="caps"&gt;UK&lt;/span&gt; government issued a beta version of the &lt;a class="reference external" href="https://www.gov.uk/service-manual"&gt;Service Design Manual&lt;/a&gt;, stating guidelines on
-how to design digital services according to the &lt;a class="reference external" href="https://www.gov.uk/service-manual/digital-by-default"&gt;Digital by Default Service Standard&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Setting a digital service standard is part of the &lt;a class="reference external" href="http://publications.cabinetoffice.gov.uk/digital/"&gt;Governmental Digital Strategy&lt;/a&gt;, which aims at producing public
-digital services, &amp;#8220;so good, that people prefer to use&amp;nbsp;them&amp;#8221;.&lt;/p&gt;
-&lt;p&gt;The manual is an interesting reading in itself, but the &lt;a class="reference external" href="https://www.gov.uk/service-manual/making-software/open-source.html"&gt;Open Source&lt;/a&gt; section is a&amp;nbsp;must.&lt;/p&gt;
-&lt;p&gt;Basically, the &lt;span class="caps"&gt;UK&lt;/span&gt; government is suggesting to use open source software
-for operating systems, networking software, web servers, databases and programming&amp;nbsp;languages.&lt;/p&gt;
-&lt;p&gt;The choice is based on the quality of the overall development and maintenance process, not on economic&amp;nbsp;grounds.&lt;/p&gt;
-</summary><category term="politics"></category><category term="open source"></category></entry><entry><title>Bureaucrats like Github</title><link href="http://lab.openpolis.it/bureaucrats-like-github.html" rel="alternate"></link><updated>2013-03-15T11:00:00+01:00</updated><author><name>guglielmo</name></author><id>tag:lab.openpolis.it,2013-03-15:bureaucrats-like-github.html</id><summary type="html">&lt;p&gt;A &lt;a class="reference external" href="http://radar.oreilly.com/2013/03/github-government-bureaucat-open-source.html?utm_source=feedburner&amp;amp;utm_medium=feed&amp;amp;utm_campaign=Feed%3A+oreilly%2Fradar%2Fatom+(O'Reilly+Radar)"&gt;post&lt;/a&gt; on &lt;a class="reference external" href="http://radar.oreilly.com"&gt;Oreilly Radar&lt;/a&gt; informs us that &lt;a class="reference external" href="http://www.github.com"&gt;Github&lt;/a&gt; is trending as the social-repository of choice for governments and public institutions
-who want to publish data, standards and source&amp;nbsp;code.&lt;/p&gt;
-&lt;p&gt;Some remarkable&amp;nbsp;examples:&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;span class="caps"&gt;US&lt;/span&gt; - &lt;a class="reference external" href="https://github.com/WhiteHouse"&gt;https://github.com/WhiteHouse&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span class="caps"&gt;NASA&lt;/span&gt; - &lt;a class="reference external" href="https://github.com/nasa"&gt;https://github.com/nasa&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span class="caps"&gt;UK&lt;/span&gt; - &lt;a class="reference external" href="https://github.com/alphagov"&gt;https://github.com/alphagov&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Canada - &lt;a class="reference external" href="https://github.com/pwgsc"&gt;https://github.com/pwgsc&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Finlandia - &lt;a class="reference external" href="https://github.com/avoinministerio"&gt;https://github.com/avoinministerio&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Buenos Aires - &lt;a class="reference external" href="https://github.com/gcba"&gt;https://github.com/gcba&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Github also destined an evangelist to the task.
-The objective: change the way governments actually face (and solve) &lt;span class="caps"&gt;ICT&lt;/span&gt; problems, studying similar solutions in the social repository,
-and implementing from scratch only when really&amp;nbsp;required.&lt;/p&gt;
-</summary><category term="politics"></category><category term="open source"></category></entry><entry><title>BLOG TODO LIST</title><link href="http://lab.openpolis.it/blog-todo-list.html" rel="alternate"></link><updated>2012-09-17T19:02:00+02:00</updated><author><name>danielef</name></author><id>tag:lab.openpolis.it,2012-09-17:blog-todo-list.html</id><summary type="html">&lt;p&gt;&lt;strong&gt;&lt;span class="caps"&gt;UPDATED&lt;/span&gt;&lt;/strong&gt; by guglielmo Nov, 11th,&amp;nbsp;2012&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;refine blog deploy flow (make/fab file) -&amp;nbsp;&lt;span class="caps"&gt;OK&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;make a theme - &lt;span class="caps"&gt;OK&lt;/span&gt;&amp;nbsp;(sortof)&lt;/li&gt;
-&lt;li&gt;add&amp;nbsp;links&lt;/li&gt;
-&lt;li&gt;disqus -&amp;nbsp;&lt;span class="caps"&gt;OK&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;google analytics - not&amp;nbsp;&lt;span class="caps"&gt;OK&lt;/span&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</summary></entry></feed>
+</summary><category term="solr"></category><category term="tomcat"></category><category term="ubuntu"></category></entry></feed>
