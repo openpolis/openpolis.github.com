@@ -93,7 +93,7 @@ download libraries, as pointed in the &lt;tt class="docutils literal"&gt;solrcon
   &amp;lt;/cores&amp;gt;
 &amp;lt;/solr&amp;gt;
 &lt;/pre&gt;
-&lt;p&gt;The &lt;tt class="docutils literal"&gt;conf&lt;/tt&gt; directories in &lt;tt class="docutils literal"&gt;cores/appX&lt;/tt&gt; are stantard solr conf directories, with all files needed, according to
+&lt;p&gt;The &lt;tt class="docutils literal"&gt;conf&lt;/tt&gt; directories in &lt;tt class="docutils literal"&gt;cores/appX&lt;/tt&gt; are standard solr conf directories, with all files needed, according to
 the solr&amp;nbsp;version.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="permissions"&gt;

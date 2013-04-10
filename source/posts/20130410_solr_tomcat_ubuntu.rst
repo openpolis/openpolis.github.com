@@ -111,7 +111,7 @@ Note:
       </cores>
     </solr>
 
-The ``conf`` directories in ``cores/appX`` are stantard solr conf directories, with all files needed, according to
+The ``conf`` directories in ``cores/appX`` are standard solr conf directories, with all files needed, according to
 the solr version.
  
  
