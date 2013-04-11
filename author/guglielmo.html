@@ -95,6 +95,37 @@ and implementing from scratch only when really&nbsp;required.</p>
  
 
     <div class='article'>
+        <a href="../how-to-configure-bash-completion-in-ubuntu.html"><h2>How to configure bash completion in&nbsp;ubuntu</h2></a>
+        <div class= "well small"> Thu 11 April 2013
+
+by <a class="url fn" href="../author/guglielmo.html">guglielmo</a>
+ 
+
+<br/>
+Filed under <a href="../category/howto.html">howto</a>
+
+ 
+    Tags <a href="../tag/bash.html">bash</a> <a href="../tag/terminal.html">terminal</a> 
+ </div>
+        <div class="summary"><p>Working in the terminal of a linux box, the <em>autocompletion</em> feature enhances your speed and comfort a&nbsp;lot.</p>
+<p>Under Ubuntu, autocompletion is installable, if not already installed,&nbsp;with:</p>
+<pre class="literal-block">
+apt-get install bash_completion
+</pre>
+<p>The <tt class="docutils literal"><span class="pre">~/.bashrc</span></tt> config file should contain these&nbsp;lines:</p>
+<pre class="literal-block">
+if [ -f /etc/bash_completion ] &amp;&amp; ! shopt -oq posix; then
+    . /etc/bash_completion
+fi ...</pre> <a class="btn btn-info xsmall" href="../how-to-configure-bash-completion-in-ubuntu.html">read more</a></div>
+    </div>	
+				
+    
+ 
+        
+
+ 
+
+    <div class='article'>
         <a href="../how-to-install-solr-on-tomcat7-over-ubuntu-1204.html"><h2>How to install solr on tomcat7, over Ubuntu&nbsp;12.04</h2></a>
         <div class= "well small"> Wed 10 April 2013
 

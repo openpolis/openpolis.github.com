@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Openpolis Lab</title><link>http://lab.openpolis.it/</link><description></description><atom:link href="http://lab.openpolis.it/feeds/howto.rss.xml" rel="self"></atom:link><lastBuildDate>Wed, 10 Apr 2013 15:30:00 +0200</lastBuildDate><item><title>How to install solr on tomcat7, over Ubuntu 12.04</title><link>http://lab.openpolis.it/how-to-install-solr-on-tomcat7-over-ubuntu-1204.html</link><description>&lt;div class="section" id="tomcat7"&gt;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Openpolis Lab</title><link>http://lab.openpolis.it/</link><description></description><atom:link href="http://lab.openpolis.it/feeds/howto.rss.xml" rel="self"></atom:link><lastBuildDate>Thu, 11 Apr 2013 16:30:00 +0200</lastBuildDate><item><title>How to configure bash completion in ubuntu</title><link>http://lab.openpolis.it/how-to-configure-bash-completion-in-ubuntu.html</link><description>&lt;p&gt;Working in the terminal of a linux box, the &lt;em&gt;autocompletion&lt;/em&gt; feature enhances your speed and comfort a&amp;nbsp;lot.&lt;/p&gt;
+&lt;p&gt;Under Ubuntu, autocompletion is installable, if not already installed,&amp;nbsp;with:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+apt-get install bash_completion
+&lt;/pre&gt;
+&lt;p&gt;The &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;~/.bashrc&lt;/span&gt;&lt;/tt&gt; config file should contain these&amp;nbsp;lines:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+if [ -f /etc/bash_completion ] &amp;amp;&amp;amp; ! shopt -oq posix; then
+    . /etc/bash_completion
+fi
+&lt;/pre&gt;
+&lt;p&gt;If things are set this way, then you will be able to autocomplete regularly (and save a loto of&amp;nbsp;time).&lt;/p&gt;
+&lt;dl class="docutils"&gt;
+&lt;dt&gt;Note:&lt;/dt&gt;
+&lt;dd&gt;In &lt;tt class="docutils literal"&gt;/etc/bash_completion.d&lt;/tt&gt; you can find the rather cryptic scripts enabling autocomplete patterns inside various unix&amp;nbsp;contexts.&lt;/dd&gt;
+&lt;/dl&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">guglielmo</dc:creator><pubDate>Thu, 11 Apr 2013 16:30:00 +0200</pubDate><guid>tag:lab.openpolis.it,2013-04-11:how-to-configure-bash-completion-in-ubuntu.html</guid><category>bash</category><category>terminal</category></item><item><title>How to install solr on tomcat7, over Ubuntu 12.04</title><link>http://lab.openpolis.it/how-to-install-solr-on-tomcat7-over-ubuntu-1204.html</link><description>&lt;div class="section" id="tomcat7"&gt;
 &lt;h2&gt;Tomcat7&lt;/h2&gt;
 &lt;p&gt;Ubuntu 12.04 comes with &lt;a class="reference external" href="http://tomcat.apache.org/"&gt;tomcat&lt;/a&gt; easily installable as a package (you need&amp;nbsp;jdk):&lt;/p&gt;
 &lt;pre class="literal-block"&gt;

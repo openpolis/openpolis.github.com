@@ -49,15 +49,55 @@
     <div class="row">
 
         <div class="span9">
-        <ul>
-    <li><a href="./tag/open-source.html">open source</a></li>
-    <li><a href="./tag/tomcat.html">tomcat</a></li>
-    <li><a href="./tag/terminal.html">terminal</a></li>
-    <li><a href="./tag/ubuntu.html">ubuntu</a></li>
-    <li><a href="./tag/politics.html">politics</a></li>
-    <li><a href="./tag/solr.html">solr</a></li>
-    <li><a href="./tag/bash.html">bash</a></li>
-</ul>
+            <div class='article'>
+        <div class="content-title">
+            <h1>How to configure bash completion in&nbsp;ubuntu</h1>
+            Thu 11 April 2013
+
+by <a class="url fn" href="./author/guglielmo.html">guglielmo</a>
+ 
+
+<br/>
+Filed under <a href="./category/howto.html">howto</a>
+
+ 
+    Tags <a href="./tag/bash.html">bash</a> <a href="./tag/terminal.html">terminal</a> 
+        </div>
+	
+        <div><p>Working in the terminal of a linux box, the <em>autocompletion</em> feature enhances your speed and comfort a&nbsp;lot.</p>
+<p>Under Ubuntu, autocompletion is installable, if not already installed,&nbsp;with:</p>
+<pre class="literal-block">
+apt-get install bash_completion
+</pre>
+<p>The <tt class="docutils literal"><span class="pre">~/.bashrc</span></tt> config file should contain these&nbsp;lines:</p>
+<pre class="literal-block">
+if [ -f /etc/bash_completion ] &amp;&amp; ! shopt -oq posix; then
+    . /etc/bash_completion
+fi
+</pre>
+<p>If things are set this way, then you will be able to autocomplete regularly (and save a loto of&nbsp;time).</p>
+<dl class="docutils">
+<dt>Note:</dt>
+<dd>In <tt class="docutils literal">/etc/bash_completion.d</tt> you can find the rather cryptic scripts enabling autocomplete patterns inside various unix&nbsp;contexts.</dd>
+</dl>
+</div>
+	
+        <hr>
+    	   
+        <h2>Comments</h2>
+	<a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="guille">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+	<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'openpolislab'; 
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
         </div>
         
         <div class="span3">
@@ -69,7 +109,7 @@
                 </li>
             
                 <li ><a href="./archives.html">Archives</a>
-                <li class="active"><a href="./tags.html">Tags</a>
+                <li ><a href="./tags.html">Tags</a>
                 <li><a href="./feeds/all.atom.xml" rel="alternate">Atom feed</a></li>
                                 <li><a href="./feeds/all.rss.xml" rel="alternate">RSS feed</a></li>
                             </ul>
@@ -82,7 +122,7 @@
                 Categories
                 </li>
                 
-                                <li ><a href="./category/howto.html">howto</a></li>
+                                <li class="active"><a href="./category/howto.html">howto</a></li>
                                 <li ><a href="./category/posts.html">posts</a></li>
                                 <li ><a href="./category/reporting.html">reporting</a></li>
                                    
