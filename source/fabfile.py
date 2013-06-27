@@ -4,15 +4,18 @@ from __future__ import with_statement
 from fabric.api import lcd, local, settings
 
 
-def pelican():
+def pelican(reload_mode=False):
     """Re-generates the output."""
     # remove all but source from upper dir
     # re-generate CNAME
     with lcd('..'):
         local('find * -maxdepth 0 ! -name source -print0 | xargs -0n1 rm -rf')
         local('touch CNAME; echo lab.openpolis.it >> CNAME')
-        
-    local('pelican . -o ../ -s settings.py')
+
+    if reload_mode:
+        local('pelican . -o ../ -r -s settings.py')
+    else:
+        local('pelican . -o ../ -s settings.py')
 
 
 def push():

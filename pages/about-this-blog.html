@@ -117,6 +117,26 @@ This is obtained through this <tt class="docutils literal">fab</tt> code in the 
   <span class="n">local</span><span class="p">(</span><span class="s">&#39;touch <span class="caps">CNAME</span>; echo lab.openpolis.it &gt;&gt; <span class="caps">CNAME</span>&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
+<div class="section" id="tmux-and-tmuxinator">
+<h2>Tmux and&nbsp;Tmuxinator</h2>
+<p>Just in case you&#8217;re using <a class="reference external" href="http://www.tmux.org???">tmux</a> and <a class="reference external" href="http://github.com/???/tmuxinator">tmuxinator</a>, I append my tmuxinator configuration.
+(In case you&#8217;re not, well, do&nbsp;it!)</p>
+<div class="highlight"><pre># ~/.tmuxinator/lab.yml
+
+# open a shell in the source (to work)
+# open a pelican daemon, reloading on source changes
+# open a basic http server (http://localhost:8000)
+# open a browser with te locally-server site (wait 2 secs)
+
+project_name: Lab Openpolis
+project_root: ~/Workspace/openpolis.github.com
+tabs:
+  - shell: workon openpolis.github.com
+  - pelican-reload: workon openpolis.github.com; fab pelican:reload_mode=True
+  - http-server: workon openpolis.github.com; cd ..; python -m SimpleHTTPServer
+  - browser: cd ~/Workspace/openpolis.github.com/; sleep 2; open index.html; exit
+</pre></div>
+</div>
 
 </section>
         </div>

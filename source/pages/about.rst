@@ -96,6 +96,29 @@ This is obtained through this ``fab`` code in the ``pelican`` task:
       local('touch CNAME; echo lab.openpolis.it >> CNAME')
 
 
+
+Tmux and Tmuxinator
+===================
+Just in case you're using tmux_ and tmuxinator_, I append my tmuxinator configuration.
+(In case you're not, well, do it!)
+
+.. sourcecode:: yml
+
+    # ~/.tmuxinator/lab.yml
+
+    # open a shell in the source (to work)
+    # open a pelican daemon, reloading on source changes
+    # open a basic http server (http://localhost:8000)
+    # open a browser with te locally-server site (wait 2 secs)
+
+    project_name: Lab Openpolis
+    project_root: ~/Workspace/openpolis.github.com
+    tabs:
+      - shell: workon openpolis.github.com
+      - pelican-reload: workon openpolis.github.com; fab pelican:reload_mode=True
+      - http-server: workon openpolis.github.com; cd ..; python -m SimpleHTTPServer
+      - browser: cd ~/Workspace/openpolis.github.com/; sleep 2; open index.html; exit
+
     
 .. _Openpolis: http://www.openpolis.it
 .. _pelican: https://github.com/getpelican/pelican
@@ -105,4 +128,5 @@ This is obtained through this ``fab`` code in the ``pelican`` task:
 .. _disqus: http://disqus.com/
 .. _tipogrify: http://jeffcroft.com/blog/2007/may/29/typogrify-easily-produce-web-typography-doesnt-suc/
 .. _Fabric: https://github.com/fabric/fabric
-
+.. _tmux: http://www.tmux.org???
+.. _tmuxinator: http://github.com/???/tmuxinator

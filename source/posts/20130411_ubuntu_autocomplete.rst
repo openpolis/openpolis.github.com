@@ -6,7 +6,7 @@ How to configure bash completion in ubuntu
 :category: howto
 :tags: bash, terminal
 
-Working in the terminal of a linux box, the *autocompletion* feature enhances your speed and comfort a lot.
+Working almost always in the terminal of a linux box, the *autocompletion* feature enhances your speed and comfort, a lot.
 
 Under Ubuntu, autocompletion is installable, if not already installed, with::
 
@@ -18,7 +18,7 @@ The ``~/.bashrc`` config file should contain these lines::
         . /etc/bash_completion
     fi
 
-If things are set this way, then you will be able to autocomplete regularly (and save a loto of time).
+If things are set this way, then you will be able to autocomplete regularly (and save a lot of time).
 
 Note:
   In ``/etc/bash_completion.d`` you can find the rather cryptic scripts enabling autocomplete patterns inside various unix contexts.

@@ -8,14 +8,14 @@
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
     <!--[if lt IE 9]>
-    <script src="./theme/html5.js"></script>
+    <script src="../theme/html5.js"></script>
     <![endif]-->
 
     <!-- Le styles -->
-    <link href="./theme/bootstrap.min.css" rel="stylesheet">
-    <link href="./theme/bootstrap.min.responsive.css" rel="stylesheet">
-    <link href="./theme/local.css" rel="stylesheet">
-    <link href="./theme/pygments.css" rel="stylesheet">
+    <link href="../theme/bootstrap.min.css" rel="stylesheet">
+    <link href="../theme/bootstrap.min.responsive.css" rel="stylesheet">
+    <link href="../theme/local.css" rel="stylesheet">
+    <link href="../theme/pygments.css" rel="stylesheet">
 
 </head>
 
@@ -31,12 +31,12 @@
              <span class="icon-bar"></span>
          </a>
 
-        <a class="brand" href=".">Openpolis Lab</a>
+        <a class="brand" href="..">Openpolis Lab</a>
 
         <div class="nav-collapse">
         <ul class="nav">
                     
-                                <li ><a href="./pages/about-this-blog.html">About this&nbsp;blog</a></li>
+                                <li ><a href="../pages/about-this-blog.html">About this&nbsp;blog</a></li>
                           </ul>
         </div>
         
@@ -49,39 +49,55 @@
     <div class="row">
 
         <div class="span9">
+                
+
         
-<h1>Archives</h1>
-
-<table class="table">
-    <tbody>
-            <tr>
-        <td>25 Jun 2013</td>
-        <td><a href='fixing-the-cant-start-the-awt-bug-for-tomcat6.html'>Fixing the &#8220;can&#8217;t start the <span class="caps">AWT</span>&#8221; bug for&nbsp;Tomcat6</a></td>
-        </tr>
-            <tr>
-        <td>11 Apr 2013</td>
-        <td><a href='how-to-configure-bash-completion-in-ubuntu.html'>How to configure bash completion in&nbsp;ubuntu</a></td>
-        </tr>
-            <tr>
-        <td>10 Apr 2013</td>
-        <td><a href='how-to-install-solr-on-tomcat7-over-ubuntu-1204.html'>How to install solr on tomcat7, over Ubuntu&nbsp;12.04</a></td>
-        </tr>
-            <tr>
-        <td>20 Mar 2013</td>
-        <td><a href='opensource-in-the-uk.html'>OpenSource in the&nbsp;<span class="caps">UK</span></a></td>
-        </tr>
-            <tr>
-        <td>15 Mar 2013</td>
-        <td><a href='bureaucrats-like-github.html'>Bureaucrats like&nbsp;Github</a></td>
-        </tr>
-            <tr>
-        <td>17 Sep 2012</td>
-        <td><a href='blog-todo-list.html'><span class="caps">BLOG</span> <span class="caps">TODO</span>&nbsp;<span class="caps">LIST</span></a></td>
-        </tr>
-        </tbody>
-</table>
 
 
+    <div class='article'>
+        <div class="content-title">
+            <a href="../fixing-the-cant-start-the-awt-bug-for-tomcat6.html"><h1>Fixing the &#8220;can&#8217;t start the <span class="caps">AWT</span>&#8221; bug for&nbsp;Tomcat6</h1></a>
+            Tue 25 June 2013
+
+by <a class="url fn" href="../author/guglielmo.html">guglielmo</a>
+ 
+
+<br/>
+Filed under <a href="../category/howto.html">howto</a>
+
+ 
+    Tags <a href="../tag/tomcat6.html">tomcat6</a> <a href="../tag/java.html">java</a> <a href="../tag/macports.html">macports</a> <a href="../tag/osx.html">osx</a> 
+ 
+        </div>
+        
+        <div><p>After a Java upgrade on the <span class="caps">OSX</span>, Tomcat6 is not starting properly. The log shows a Java&nbsp;error:</p>
+<pre class="code literal-block">
+2013-06-27 14:45:40.300 jsvc[57146:203] Apple AWT Java VM was loaded on first thread -- can't start AWT.
+Jun 27, 2013 2:45:40 PM org.apache.catalina.startup.Bootstrap initClassLoaders
+SEVERE: Class loader creation threw exception
+java.lang.InternalError: Can't start the AWT because Java was started on the first thread.  Make sure StartOnFirstThread is not specified in your application's Info.plist ...
+</pre>
+<p>To have it properly start through <tt class="docutils literal">tomcatctl</tt>, you need to add a <tt class="docutils literal">JAVA_OPTS</tt>. This can be done,
+by modifying the <tt class="docutils literal">/opt/local/share/java/tomcat6/conf/setenv.local</tt> file, and appending this line to&nbsp;it:</p>
+<pre class="literal-block">
+export JAVA_OPTS=&quot;$JAVA_OPTS -Djava.awt.headless=true&quot;
+</pre>
+</div>
+        <hr />
+    </div>
+		
+            <div class="pagination">
+<ul>
+    <li class="prev disabled"><a href="#">&larr; Previous</a></li>
+
+    <li class="active"><a href="../tag/java.html">1</a></li>
+
+    <li class="next disabled"><a href="#">&rarr; Next</a></li>
+
+</ul>
+</div>    
+ 
+  
         </div>
         
         <div class="span3">
@@ -92,10 +108,10 @@
                 Site
                 </li>
             
-                <li class="active"><a href="./archives.html">Archives</a>
-                <li ><a href="./tags.html">Tags</a>
-                <li><a href="./feeds/all.atom.xml" rel="alternate">Atom feed</a></li>
-                                <li><a href="./feeds/all.rss.xml" rel="alternate">RSS feed</a></li>
+                <li ><a href="../archives.html">Archives</a>
+                <li ><a href="../tags.html">Tags</a>
+                <li><a href="../feeds/all.atom.xml" rel="alternate">Atom feed</a></li>
+                                <li><a href="../feeds/all.rss.xml" rel="alternate">RSS feed</a></li>
                             </ul>
             </div>
 
@@ -106,9 +122,9 @@
                 Categories
                 </li>
                 
-                                <li ><a href="./category/howto.html">howto</a></li>
-                                <li ><a href="./category/posts.html">posts</a></li>
-                                <li ><a href="./category/reporting.html">reporting</a></li>
+                                <li ><a href="../category/howto.html">howto</a></li>
+                                <li ><a href="../category/posts.html">posts</a></li>
+                                <li ><a href="../category/reporting.html">reporting</a></li>
                                    
             </ul>
             </div>
@@ -146,7 +162,7 @@
     </div>     </div> 
 <footer>
 <br />
-<p id="copyright-notice"><a href=".">Openpolis Lab</a> &copy; Openpolis 2013 - <span>all contents within lab.openpolis.it are released under the terms of the <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported</a> license</span> </p>
+<p id="copyright-notice"><a href="..">Openpolis Lab</a> &copy; Openpolis 2013 - <span>all contents within lab.openpolis.it are released under the terms of the <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported</a> license</span> </p>
 </footer>
 
 </div> <!-- /container -->

@@ -1,0 +1,22 @@
+Fixing the "can't start the AWT" bug for Tomcat6
+================================================
+
+:date: 2013-06-25 14:30
+:author: guglielmo
+:category: howto
+:tags: tomcat6, java, macports, osx
+
+After a Java upgrade on the OSX, Tomcat6 is not starting properly. The log shows a Java error:
+
+.. code::
+
+    2013-06-27 14:45:40.300 jsvc[57146:203] Apple AWT Java VM was loaded on first thread -- can't start AWT.
+    Jun 27, 2013 2:45:40 PM org.apache.catalina.startup.Bootstrap initClassLoaders
+    SEVERE: Class loader creation threw exception
+    java.lang.InternalError: Can't start the AWT because Java was started on the first thread.  Make sure StartOnFirstThread is not specified in your application's Info.plist ...
+
+To have it properly start through ``tomcatctl``, you need to add a ``JAVA_OPTS``. This can be done,
+by modifying the ``/opt/local/share/java/tomcat6/conf/setenv.local`` file, and appending this line to it::
+
+    export JAVA_OPTS="$JAVA_OPTS -Djava.awt.headless=true"
+

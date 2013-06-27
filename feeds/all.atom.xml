@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Openpolis Lab</title><link href="http://lab.openpolis.it/" rel="alternate"></link><link href="http://lab.openpolis.it/feeds/all.atom.xml" rel="self"></link><id>http://lab.openpolis.it/</id><updated>2013-04-11T16:30:00+02:00</updated><entry><title>How to configure bash completion in ubuntu</title><link href="http://lab.openpolis.it/how-to-configure-bash-completion-in-ubuntu.html" rel="alternate"></link><updated>2013-04-11T16:30:00+02:00</updated><author><name>guglielmo</name></author><id>tag:lab.openpolis.it,2013-04-11:how-to-configure-bash-completion-in-ubuntu.html</id><summary type="html">&lt;p&gt;Working in the terminal of a linux box, the &lt;em&gt;autocompletion&lt;/em&gt; feature enhances your speed and comfort a&amp;nbsp;lot.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Openpolis Lab</title><link href="http://lab.openpolis.it/" rel="alternate"></link><link href="http://lab.openpolis.it/feeds/all.atom.xml" rel="self"></link><id>http://lab.openpolis.it/</id><updated>2013-06-25T14:30:00+02:00</updated><entry><title>Fixing the “can’t start the AWT” bug for Tomcat6</title><link href="http://lab.openpolis.it/fixing-the-cant-start-the-awt-bug-for-tomcat6.html" rel="alternate"></link><updated>2013-06-25T14:30:00+02:00</updated><author><name>guglielmo</name></author><id>tag:lab.openpolis.it,2013-06-25:fixing-the-cant-start-the-awt-bug-for-tomcat6.html</id><summary type="html">&lt;p&gt;After a Java upgrade on the &lt;span class="caps"&gt;OSX&lt;/span&gt;, Tomcat6 is not starting properly. The log shows a Java&amp;nbsp;error:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+2013-06-27 14:45:40.300 jsvc[57146:203] Apple AWT Java VM was loaded on first thread -- can't start AWT.
+Jun 27, 2013 2:45:40 PM org.apache.catalina.startup.Bootstrap initClassLoaders
+SEVERE: Class loader creation threw exception
+java.lang.InternalError: Can't start the AWT because Java was started on the first thread.  Make sure StartOnFirstThread is not specified in your application's Info.plist ...
+&lt;/pre&gt;
+&lt;p&gt;To have it properly start through &lt;tt class="docutils literal"&gt;tomcatctl&lt;/tt&gt;, you need to add a &lt;tt class="docutils literal"&gt;JAVA_OPTS&lt;/tt&gt;. This can be done,
+by modifying the &lt;tt class="docutils literal"&gt;/opt/local/share/java/tomcat6/conf/setenv.local&lt;/tt&gt; file, and appending this line to&amp;nbsp;it:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+export JAVA_OPTS=&amp;quot;$JAVA_OPTS -Djava.awt.headless=true&amp;quot;
+&lt;/pre&gt;
+</summary><category term="tomcat6"></category><category term="java"></category><category term="macports"></category><category term="osx"></category></entry><entry><title>How to configure bash completion in ubuntu</title><link href="http://lab.openpolis.it/how-to-configure-bash-completion-in-ubuntu.html" rel="alternate"></link><updated>2013-04-11T16:30:00+02:00</updated><author><name>guglielmo</name></author><id>tag:lab.openpolis.it,2013-04-11:how-to-configure-bash-completion-in-ubuntu.html</id><summary type="html">&lt;p&gt;Working almost always in the terminal of a linux box, the &lt;em&gt;autocompletion&lt;/em&gt; feature enhances your speed and comfort, a&amp;nbsp;lot.&lt;/p&gt;
 &lt;p&gt;Under Ubuntu, autocompletion is installable, if not already installed,&amp;nbsp;with:&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
 apt-get install bash_completion
@@ -10,7 +22,7 @@ if [ -f /etc/bash_completion ] &amp;amp;&amp;amp; ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 &lt;/pre&gt;
-&lt;p&gt;If things are set this way, then you will be able to autocomplete regularly (and save a loto of&amp;nbsp;time).&lt;/p&gt;
+&lt;p&gt;If things are set this way, then you will be able to autocomplete regularly (and save a lot of&amp;nbsp;time).&lt;/p&gt;
 &lt;dl class="docutils"&gt;
 &lt;dt&gt;Note:&lt;/dt&gt;
 &lt;dd&gt;In &lt;tt class="docutils literal"&gt;/etc/bash_completion.d&lt;/tt&gt; you can find the rather cryptic scripts enabling autocomplete patterns inside various unix&amp;nbsp;contexts.&lt;/dd&gt;
