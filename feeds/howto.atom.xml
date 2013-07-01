@@ -1,5 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Openpolis Lab</title><link href="http://lab.openpolis.it/" rel="alternate"></link><link href="http://lab.openpolis.it/feeds/howto.atom.xml" rel="self"></link><id>http://lab.openpolis.it/</id><updated>2013-06-25T14:30:00+02:00</updated><entry><title>Fixing the “can’t start the AWT” bug for Tomcat6</title><link href="http://lab.openpolis.it/fixing-the-cant-start-the-awt-bug-for-tomcat6.html" rel="alternate"></link><updated>2013-06-25T14:30:00+02:00</updated><author><name>guglielmo</name></author><id>tag:lab.openpolis.it,2013-06-25:fixing-the-cant-start-the-awt-bug-for-tomcat6.html</id><summary type="html">&lt;p&gt;After a Java upgrade on the &lt;span class="caps"&gt;OSX&lt;/span&gt;, Tomcat6 is not starting properly. The log shows a Java&amp;nbsp;error:&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Openpolis Lab</title><link href="http://lab.openpolis.it/" rel="alternate"></link><link href="http://lab.openpolis.it/feeds/howto.atom.xml" rel="self"></link><id>http://lab.openpolis.it/</id><updated>2013-07-01T07:30:00+02:00</updated><entry><title>Executing Django views</title><link href="http://lab.openpolis.it/executing-django-views.html" rel="alternate"></link><updated>2013-07-01T07:30:00+02:00</updated><author><name>guglielmo</name></author><id>tag:lab.openpolis.it,2013-07-01:executing-django-views.html</id><summary type="html">&lt;p&gt;The code within django views is executed during the &lt;span class="caps"&gt;HTTP&lt;/span&gt; request-response workflow and there is little chance of
+executing it outside that&amp;nbsp;context.&lt;/p&gt;
+&lt;p&gt;There can be, however situations in which executing it is exactly what you want. For example if you need to test
+the views &lt;em&gt;efficiently&lt;/em&gt;, or you want to generate context caches through management&amp;nbsp;tasks.&lt;/p&gt;
+&lt;p&gt;Starting from
+&lt;a class="reference external" href="http://tech.novapost.fr/django-unit-test-your-views-en.html"&gt;http://tech.novapost.fr/django-unit-test-your-views-en.html&lt;/a&gt;, where a Django&amp;#8217;s test client replacement is described,
+I&amp;#8217;ve implemented a management task to execute the &lt;tt class="docutils literal"&gt;get_context_data&lt;/tt&gt; method of a class-based view.
+This allowed me to easily debug the code, understanding some of the quirks in it, and to use it more generally, as a tool to manually (re-)generate the related context cache, without using a headless&amp;nbsp;browser.&lt;/p&gt;
+&lt;p&gt;At the core of the technique, is the following function, that receives a &lt;strong&gt;&lt;span class="caps"&gt;CBV&lt;/span&gt; instance&lt;/strong&gt;, along&amp;nbsp;with:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;the&amp;nbsp;request,&lt;/li&gt;
+&lt;li&gt;an object instance (since we&amp;#8217;re working with a DetailView&amp;nbsp;class),&lt;/li&gt;
+&lt;li&gt;the same &lt;tt class="docutils literal"&gt;args&lt;/tt&gt; and &lt;tt class="docutils literal"&gt;kwargs&lt;/tt&gt; that&amp;#8217;d be used in &lt;tt class="docutils literal"&gt;reverse()&lt;/tt&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="code literal-block"&gt;
+def setup_view(view, request, object, *args, **kwargs):
+    &amp;quot;&amp;quot;&amp;quot;Mimic as_view() returned callable, but returns view instance.
+
+    args and kwargs are the same you would pass to ``reverse()``
+
+    &amp;quot;&amp;quot;&amp;quot;
+    view.request = request
+    view.object = object
+    view.args = args
+    view.kwargs = kwargs
+    return view
+&lt;/pre&gt;
+&lt;p&gt;Having this function handy in some package, allows you to write the following piece of&amp;nbsp;code:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+from myutils_package import setup_view
+
+view = setup_view(
+    MyView(),
+    RequestFactory().get(&amp;quot;/mypath/{0}&amp;quot;.format(slug)),
+    obj_instance
+)
+
+context = view.get_context_data()
+&lt;/pre&gt;
+&lt;p&gt;that will compute the view&amp;#8217;s context, as if a client had visited the url, with a get&amp;nbsp;request.&lt;/p&gt;
+&lt;p&gt;If the class definition contains a cache decorator, then the cache is&amp;nbsp;stored:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+class MyView(DetailView):
+    model = MyModel
+    context_object_name = 'mymodel'
+
+    &amp;#64;cached_context
+    def get_context_data(self, **kwargs):
+
+        context = super(MyModelView, self).get_context_data(**kwargs)
+        ...
+        return context
+&lt;/pre&gt;
+&lt;p&gt;The decorator&amp;nbsp;definition:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+def cached_context(get_context_data):
+    &amp;quot;&amp;quot;&amp;quot;
+    This decorator is used to cache the ``get_context_data()`` method
+    called by a ``get()`` or ``post()`` in the views.
+    It generates a unique key for the request,
+    checks if the key is in the cache:
+    if it is, then it returns it,
+    else it will generate and save the key, before returning it.
+    &amp;quot;&amp;quot;&amp;quot;
+
+    def decorator(self, **kwargs):
+        key = 'context' + self.request.get_full_path()
+        context = cache.get(key)
+        if context is None:
+            context = get_context_data(self, **kwargs)
+            cache.set(key, context)
+        return context
+    return decorator
+&lt;/pre&gt;
+</summary><category term="django"></category><category term="python"></category></entry><entry><title>Fixing the “can’t start the AWT” bug for Tomcat6</title><link href="http://lab.openpolis.it/fixing-the-cant-start-the-awt-bug-for-tomcat6.html" rel="alternate"></link><updated>2013-06-25T14:30:00+02:00</updated><author><name>guglielmo</name></author><id>tag:lab.openpolis.it,2013-06-25:fixing-the-cant-start-the-awt-bug-for-tomcat6.html</id><summary type="html">&lt;p&gt;After a Java upgrade on the &lt;span class="caps"&gt;OSX&lt;/span&gt;, Tomcat6 is not starting properly. The log shows a Java&amp;nbsp;error:&lt;/p&gt;
 &lt;pre class="code literal-block"&gt;
 2013-06-27 14:45:40.300 jsvc[57146:203] Apple AWT Java VM was loaded on first thread -- can't start AWT.
 Jun 27, 2013 2:45:40 PM org.apache.catalina.startup.Bootstrap initClassLoaders

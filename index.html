@@ -56,8 +56,107 @@
 
     <div class='article'>
         <div class="content-title">
-            <a href="./fixing-the-cant-start-the-awt-bug-for-tomcat6.html"><h1>Fixing the &#8220;can&#8217;t start the <span class="caps">AWT</span>&#8221; bug for&nbsp;Tomcat6</h1></a>
-            Tue 25 June 2013
+            <a href="./executing-django-views.html"><h1>Executing Django&nbsp;views</h1></a>
+            Mon 01 July 2013
+
+by <a class="url fn" href="./author/guglielmo.html">guglielmo</a>
+ 
+
+<br/>
+Filed under <a href="./category/howto.html">howto</a>
+
+ 
+    Tags <a href="./tag/django.html">django</a> <a href="./tag/python.html">python</a> 
+ 
+        </div>
+        
+        <div><p>The code within django views is executed during the <span class="caps">HTTP</span> request-response workflow and there is little chance of
+executing it outside that&nbsp;context.</p>
+<p>There can be, however situations in which executing it is exactly what you want. For example if you need to test
+the views <em>efficiently</em>, or you want to generate context caches through management&nbsp;tasks.</p>
+<p>Starting from
+<a class="reference external" href="http://tech.novapost.fr/django-unit-test-your-views-en.html">http://tech.novapost.fr/django-unit-test-your-views-en.html</a>, where a Django&#8217;s test client replacement is described,
+I&#8217;ve implemented a management task to execute the <tt class="docutils literal">get_context_data</tt> method of a class-based view.
+This allowed me to easily debug the code, understanding some of the quirks in it, and to use it more generally, as a tool to manually (re-)generate the related context cache, without using a headless&nbsp;browser.</p>
+<p>At the core of the technique, is the following function, that receives a <strong><span class="caps">CBV</span> instance</strong>, along&nbsp;with:</p>
+<ul class="simple">
+<li>the&nbsp;request,</li>
+<li>an object instance (since we&#8217;re working with a DetailView&nbsp;class),</li>
+<li>the same <tt class="docutils literal">args</tt> and <tt class="docutils literal">kwargs</tt> that&#8217;d be used in <tt class="docutils literal">reverse()</tt>.</li>
+</ul>
+<pre class="code literal-block">
+def setup_view(view, request, object, *args, **kwargs):
+    &quot;&quot;&quot;Mimic as_view() returned callable, but returns view instance.
+
+    args and kwargs are the same you would pass to ``reverse()``
+
+    &quot;&quot;&quot;
+    view.request = request
+    view.object = object
+    view.args = args
+    view.kwargs = kwargs
+    return view
+</pre>
+<p>Having this function handy in some package, allows you to write the following piece of&nbsp;code:</p>
+<pre class="literal-block">
+from myutils_package import setup_view
+
+view = setup_view(
+    MyView(),
+    RequestFactory().get(&quot;/mypath/{0}&quot;.format(slug)),
+    obj_instance
+)
+
+context = view.get_context_data()
+</pre>
+<p>that will compute the view&#8217;s context, as if a client had visited the url, with a get&nbsp;request.</p>
+<p>If the class definition contains a cache decorator, then the cache is&nbsp;stored:</p>
+<pre class="literal-block">
+class MyView(DetailView):
+    model = MyModel
+    context_object_name = 'mymodel'
+
+    &#64;cached_context
+    def get_context_data(self, **kwargs):
+
+        context = super(MyModelView, self).get_context_data(**kwargs)
+        ...
+        return context
+</pre>
+<p>The decorator&nbsp;definition:</p>
+<pre class="literal-block">
+def cached_context(get_context_data):
+    &quot;&quot;&quot;
+    This decorator is used to cache the ``get_context_data()`` method
+    called by a ``get()`` or ``post()`` in the views.
+    It generates a unique key for the request,
+    checks if the key is in the cache:
+    if it is, then it returns it,
+    else it will generate and save the key, before returning it.
+    &quot;&quot;&quot;
+
+    def decorator(self, **kwargs):
+        key = 'context' + self.request.get_full_path()
+        context = cache.get(key)
+        if context is None:
+            context = get_context_data(self, **kwargs)
+            cache.set(key, context)
+        return context
+    return decorator
+</pre>
+</div>
+        <hr />
+    </div>
+		
+    
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="./fixing-the-cant-start-the-awt-bug-for-tomcat6.html"><h2>Fixing the &#8220;can&#8217;t start the <span class="caps">AWT</span>&#8221; bug for&nbsp;Tomcat6</h2></a>
+        <div class= "well small"> Tue 25 June 2013
 
 by <a class="url fn" href="./author/guglielmo.html">guglielmo</a>
  
@@ -67,26 +166,13 @@ Filed under <a href="./category/howto.html">howto</a>
 
  
     Tags <a href="./tag/tomcat6.html">tomcat6</a> <a href="./tag/java.html">java</a> <a href="./tag/macports.html">macports</a> <a href="./tag/osx.html">osx</a> 
- 
-        </div>
-        
-        <div><p>After a Java upgrade on the <span class="caps">OSX</span>, Tomcat6 is not starting properly. The log shows a Java&nbsp;error:</p>
+ </div>
+        <div class="summary"><p>After a Java upgrade on the <span class="caps">OSX</span>, Tomcat6 is not starting properly. The log shows a Java&nbsp;error:</p>
 <pre class="code literal-block">
 2013-06-27 14:45:40.300 jsvc[57146:203] Apple AWT Java VM was loaded on first thread -- can't start AWT.
-Jun 27, 2013 2:45:40 PM org.apache.catalina.startup.Bootstrap initClassLoaders
-SEVERE: Class loader creation threw exception
-java.lang.InternalError: Can't start the AWT because Java was started on the first thread.  Make sure StartOnFirstThread is not specified in your application's Info.plist ...
-</pre>
-<p>To have it properly start through <tt class="docutils literal">tomcatctl</tt>, you need to add the <tt class="docutils literal">awt.headless</tt> option to <tt class="docutils literal">JAVA_OPTS</tt>.
-This can be done, by modifying the <tt class="docutils literal">/opt/local/share/java/tomcat6/conf/setenv.local</tt> file,
-and appending this line to&nbsp;it:</p>
-<pre class="literal-block">
-export JAVA_OPTS=&quot;$JAVA_OPTS -Djava.awt.headless=true&quot;
-</pre>
-</div>
-        <hr />
-    </div>
-		
+Jun 27, 2013 2:45:40 PM org.apache.catalina.startup ...</pre> <a class="btn btn-info xsmall" href="./fixing-the-cant-start-the-awt-bug-for-tomcat6.html">read more</a></div>
+    </div>	
+				
     
  
         
