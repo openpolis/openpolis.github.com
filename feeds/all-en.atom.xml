@@ -1,5 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Openpolis Lab</title><link href="http://lab.openpolis.it/" rel="alternate"></link><link href="http://lab.openpolis.it/feeds/all-en.atom.xml" rel="self"></link><id>http://lab.openpolis.it/</id><updated>2013-10-19T10:30:00+02:00</updated><entry><title>Using Tkinter inside a virtualenv</title><link href="http://lab.openpolis.it/using-tkinter-inside-a-virtualenv.html" rel="alternate"></link><updated>2013-10-19T10:30:00+02:00</updated><author><name>guglielmo</name></author><id>tag:lab.openpolis.it,2013-10-19:using-tkinter-inside-a-virtualenv.html</id><summary type="html">&lt;p&gt;&lt;a class="reference external" href="https://wiki.python.org/moin/TkInter"&gt;Tkinter&lt;/a&gt; is usually installed on &lt;span class="caps"&gt;OSX&lt;/span&gt; trhough &lt;a class="reference external" href="http://www.macports.org/"&gt;macports&lt;/a&gt; as a global&amp;nbsp;package:&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Openpolis Lab</title><link href="http://lab.openpolis.it/" rel="alternate"></link><link href="http://lab.openpolis.it/feeds/all-en.atom.xml" rel="self"></link><id>http://lab.openpolis.it/</id><updated>2013-10-20T10:30:00+02:00</updated><entry><title>Using Mapnik inside a virtualenv on OSX</title><link href="http://lab.openpolis.it/using-mapnik-inside-a-virtualenv-on-osx.html" rel="alternate"></link><updated>2013-10-20T10:30:00+02:00</updated><author><name>guglielmo</name></author><id>tag:lab.openpolis.it,2013-10-20:using-mapnik-inside-a-virtualenv-on-osx.html</id><summary type="html">&lt;p&gt;&lt;a class="reference external" href="https://github.com/mapnik/mapnik/wiki/Mapnik2"&gt;Mapnik&lt;/a&gt; is a tool to produce maps out of gis&amp;nbsp;data.&lt;/p&gt;
+&lt;p&gt;Since installation in a virtualenv through &lt;tt class="docutils literal"&gt;pip install mapnik2&lt;/tt&gt; fails, due to compilation
+problems (boost library cannot be located correctly), the following workaround can be&amp;nbsp;used.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p class="first"&gt;Install Mapnik through&amp;nbsp;macports:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+sudo port install mapnik &amp;#64;2.2.0_0+python27
+&lt;/pre&gt;
+&lt;p&gt;This will install both the libraries and the python bindings, as global packages&amp;nbsp;in:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+/opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/
+&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Link mapnik directories into the virtualenv&amp;#8217;s site_package&amp;nbsp;directory:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+workon &amp;lt;virtualenv&amp;gt;
+cdsitepackages
+ln -s /opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/mapnik .
+ln -s /opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/mapnik2 .
+&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</summary><category term="python"></category><category term="osx"></category><category term="macports"></category></entry><entry><title>Using Tkinter inside a virtualenv</title><link href="http://lab.openpolis.it/using-tkinter-inside-a-virtualenv.html" rel="alternate"></link><updated>2013-10-19T10:30:00+02:00</updated><author><name>guglielmo</name></author><id>tag:lab.openpolis.it,2013-10-19:using-tkinter-inside-a-virtualenv.html</id><summary type="html">&lt;p&gt;&lt;a class="reference external" href="https://wiki.python.org/moin/TkInter"&gt;Tkinter&lt;/a&gt; is usually installed on &lt;span class="caps"&gt;OSX&lt;/span&gt; trhough &lt;a class="reference external" href="http://www.macports.org/"&gt;macports&lt;/a&gt; as a global&amp;nbsp;package:&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
 sudo port install py27-tkinter
 &lt;/pre&gt;
@@ -12,10 +34,14 @@ Traceback (most recent call last):
     import _tkinter # If this fails your Python may not be configured for Tk
 ImportError: No module named _tkinter
 &lt;/pre&gt;
-&lt;p&gt;The package consists of a single library (_tkinter.so) and can be installed in the virtualenv by&amp;nbsp;symlinking:&lt;/p&gt;
+&lt;p&gt;The package consists of a single library (_tkinter.so) that can be &lt;em&gt;installed&lt;/em&gt; in the virtual environment,
+just by symlinking it into the virtualenv&amp;#8217;s site_package&amp;nbsp;directory:&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
+workon &amp;lt;virtualenv&amp;gt;
+cdsitepackages
 ln -s /opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/_tkinter.so .
 &lt;/pre&gt;
+&lt;p&gt;Yes, it&amp;#8217;s kind of an hack, but it&amp;nbsp;works.&lt;/p&gt;
 </summary><category term="python"></category><category term="osx"></category><category term="macports"></category></entry><entry><title>Fixing the “can’t start the AWT” bug for Tomcat6</title><link href="http://lab.openpolis.it/fixing-the-cant-start-the-awt-bug-for-tomcat6.html" rel="alternate"></link><updated>2013-06-25T14:30:00+02:00</updated><author><name>guglielmo</name></author><id>tag:lab.openpolis.it,2013-06-25:fixing-the-cant-start-the-awt-bug-for-tomcat6.html</id><summary type="html">&lt;p&gt;After a Java upgrade on the &lt;span class="caps"&gt;OSX&lt;/span&gt;, Tomcat6 is not starting properly. The log shows a Java&amp;nbsp;error:&lt;/p&gt;
 &lt;pre class="code literal-block"&gt;
 2013-06-27 14:45:40.300 jsvc[57146:203] Apple AWT Java VM was loaded on first thread -- can't start AWT.

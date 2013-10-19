@@ -20,9 +20,15 @@ Within a virtualenv the package will not be imported, as global packages are not
         import _tkinter # If this fails your Python may not be configured for Tk
     ImportError: No module named _tkinter
 
-The package consists of a single library (_tkinter.so) and can be installed in the virtualenv by symlinking::
+The package consists of a single library (_tkinter.so) that can be *installed* in the virtual environment, 
+just by symlinking it into the virtualenv's site_package directory::
 
+    workon <virtualenv>
+    cdsitepackages
     ln -s /opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/_tkinter.so .
     
+    
+Yes, it's kind of an hack, but it works.
+
 .. _Tkinter: https://wiki.python.org/moin/TkInter
 .. _macports: http://www.macports.org/

@@ -77,10 +77,14 @@ Traceback (most recent call last):
     import _tkinter # If this fails your Python may not be configured for Tk
 ImportError: No module named _tkinter
 </pre>
-<p>The package consists of a single library (_tkinter.so) and can be installed in the virtualenv by&nbsp;symlinking:</p>
+<p>The package consists of a single library (_tkinter.so) that can be <em>installed</em> in the virtual environment,
+just by symlinking it into the virtualenv&#8217;s site_package&nbsp;directory:</p>
 <pre class="literal-block">
+workon &lt;virtualenv&gt;
+cdsitepackages
 ln -s /opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/_tkinter.so .
 </pre>
+<p>Yes, it&#8217;s kind of an hack, but it&nbsp;works.</p>
 </div>
 	
         <hr>
