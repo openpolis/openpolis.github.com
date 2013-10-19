@@ -56,8 +56,8 @@
 
     <div class='article'>
         <div class="content-title">
-            <a href="./executing-django-views.html"><h1>Executing Django&nbsp;views</h1></a>
-            Mon 01 July 2013
+            <a href="./using-tkinter-inside-a-virtualenv.html"><h1>Using Tkinter inside a&nbsp;virtualenv</h1></a>
+            Sat 19 October 2013
 
 by <a class="url fn" href="./author/guglielmo.html">guglielmo</a>
  
@@ -66,83 +66,26 @@ by <a class="url fn" href="./author/guglielmo.html">guglielmo</a>
 Filed under <a href="./category/howto.html">howto</a>
 
  
-    Tags <a href="./tag/django.html">django</a> <a href="./tag/python.html">python</a> 
+    Tags <a href="./tag/python.html">python</a> <a href="./tag/osx.html">osx</a> <a href="./tag/macports.html">macports</a> 
  
         </div>
         
-        <div><p>The code within django views is executed during the <span class="caps">HTTP</span> request-response workflow and there is little chance of
-executing it outside that&nbsp;context.</p>
-<p>There can be, however situations in which executing it is exactly what you want. For example if you need to test
-the views <em>efficiently</em>, or you want to generate context caches through management&nbsp;tasks.</p>
-<p>Starting from
-<a class="reference external" href="http://tech.novapost.fr/django-unit-test-your-views-en.html">http://tech.novapost.fr/django-unit-test-your-views-en.html</a>, where a Django&#8217;s test client replacement is described,
-I&#8217;ve implemented a management task to execute the <tt class="docutils literal">get_context_data</tt> method of a class-based view.
-This allowed me to easily debug the code, understanding some of the quirks in it, and to use it more generally, as a tool to manually (re-)generate the related context cache, without using a headless&nbsp;browser.</p>
-<p>At the core of the technique, is the following function, that receives a <strong><span class="caps">CBV</span> instance</strong>, along&nbsp;with:</p>
-<ul class="simple">
-<li>the&nbsp;request,</li>
-<li>an object instance (since we&#8217;re working with a DetailView&nbsp;class),</li>
-<li>the same <tt class="docutils literal">args</tt> and <tt class="docutils literal">kwargs</tt> that&#8217;d be used in <tt class="docutils literal">reverse()</tt>.</li>
-</ul>
-<pre class="code literal-block">
-def setup_view(view, request, object, *args, **kwargs):
-    &quot;&quot;&quot;Mimic as_view() returned callable, but returns view instance.
-
-    args and kwargs are the same you would pass to ``reverse()``
-
-    &quot;&quot;&quot;
-    view.request = request
-    view.object = object
-    view.args = args
-    view.kwargs = kwargs
-    return view
-</pre>
-<p>Having this function handy in some package, allows you to write the following piece of&nbsp;code:</p>
+        <div><p><a class="reference external" href="https://wiki.python.org/moin/TkInter">Tkinter</a> is usually installed on <span class="caps">OSX</span> trhough <a class="reference external" href="http://www.macports.org/">macports</a> as a global&nbsp;package:</p>
 <pre class="literal-block">
-from myutils_package import setup_view
-
-view = setup_view(
-    MyView(),
-    RequestFactory().get(&quot;/mypath/{0}&quot;.format(slug)),
-    obj_instance
-)
-
-context = view.get_context_data()
+sudo port install py27-tkinter
 </pre>
-<p>that will compute the view&#8217;s context, as if a client had visited the url, with a get&nbsp;request.</p>
-<p>If the class definition contains a cache decorator, then the cache is&nbsp;stored:</p>
+<p>Within a virtualenv the package will not be imported, as global packages are not included by&nbsp;default:</p>
 <pre class="literal-block">
-class MyView(DetailView):
-    model = MyModel
-    context_object_name = 'mymodel'
-
-    &#64;cached_context
-    def get_context_data(self, **kwargs):
-
-        context = super(MyModelView, self).get_context_data(**kwargs)
-        ...
-        return context
+&gt;&gt;&gt; import Tkinter
+Traceback (most recent call last):
+  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+  File &quot;/opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/lib-tk/Tkinter.py&quot;, line 39, in &lt;module&gt;
+    import _tkinter # If this fails your Python may not be configured for Tk
+ImportError: No module named _tkinter
 </pre>
-<p>The decorator&nbsp;definition:</p>
+<p>The package consists of a single library (_tkinter.so) and can be installed in the virtualenv by&nbsp;symlinking:</p>
 <pre class="literal-block">
-def cached_context(get_context_data):
-    &quot;&quot;&quot;
-    This decorator is used to cache the ``get_context_data()`` method
-    called by a ``get()`` or ``post()`` in the views.
-    It generates a unique key for the request,
-    checks if the key is in the cache:
-    if it is, then it returns it,
-    else it will generate and save the key, before returning it.
-    &quot;&quot;&quot;
-
-    def decorator(self, **kwargs):
-        key = 'context' + self.request.get_full_path()
-        context = cache.get(key)
-        if context is None:
-            context = get_context_data(self, **kwargs)
-            cache.set(key, context)
-        return context
-    return decorator
+ln -s /opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/_tkinter.so .
 </pre>
 </div>
         <hr />

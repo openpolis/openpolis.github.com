@@ -56,8 +56,50 @@
 
     <div class='article'>
         <div class="content-title">
-            <a href="../fixing-the-cant-start-the-awt-bug-for-tomcat6.html"><h1>Fixing the &#8220;can&#8217;t start the <span class="caps">AWT</span>&#8221; bug for&nbsp;Tomcat6</h1></a>
-            Tue 25 June 2013
+            <a href="../using-tkinter-inside-a-virtualenv.html"><h1>Using Tkinter inside a&nbsp;virtualenv</h1></a>
+            Sat 19 October 2013
+
+by <a class="url fn" href="../author/guglielmo.html">guglielmo</a>
+ 
+
+<br/>
+Filed under <a href="../category/howto.html">howto</a>
+
+ 
+    Tags <a href="../tag/python.html">python</a> <a href="../tag/osx.html">osx</a> <a href="../tag/macports.html">macports</a> 
+ 
+        </div>
+        
+        <div><p><a class="reference external" href="https://wiki.python.org/moin/TkInter">Tkinter</a> is usually installed on <span class="caps">OSX</span> trhough <a class="reference external" href="http://www.macports.org/">macports</a> as a global&nbsp;package:</p>
+<pre class="literal-block">
+sudo port install py27-tkinter
+</pre>
+<p>Within a virtualenv the package will not be imported, as global packages are not included by&nbsp;default:</p>
+<pre class="literal-block">
+&gt;&gt;&gt; import Tkinter
+Traceback (most recent call last):
+  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+  File &quot;/opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/lib-tk/Tkinter.py&quot;, line 39, in &lt;module&gt;
+    import _tkinter # If this fails your Python may not be configured for Tk
+ImportError: No module named _tkinter
+</pre>
+<p>The package consists of a single library (_tkinter.so) and can be installed in the virtualenv by&nbsp;symlinking:</p>
+<pre class="literal-block">
+ln -s /opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/_tkinter.so .
+</pre>
+</div>
+        <hr />
+    </div>
+		
+    
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="../fixing-the-cant-start-the-awt-bug-for-tomcat6.html"><h2>Fixing the &#8220;can&#8217;t start the <span class="caps">AWT</span>&#8221; bug for&nbsp;Tomcat6</h2></a>
+        <div class= "well small"> Tue 25 June 2013
 
 by <a class="url fn" href="../author/guglielmo.html">guglielmo</a>
  
@@ -67,26 +109,13 @@ Filed under <a href="../category/howto.html">howto</a>
 
  
     Tags <a href="../tag/tomcat6.html">tomcat6</a> <a href="../tag/java.html">java</a> <a href="../tag/macports.html">macports</a> <a href="../tag/osx.html">osx</a> 
- 
-        </div>
-        
-        <div><p>After a Java upgrade on the <span class="caps">OSX</span>, Tomcat6 is not starting properly. The log shows a Java&nbsp;error:</p>
+ </div>
+        <div class="summary"><p>After a Java upgrade on the <span class="caps">OSX</span>, Tomcat6 is not starting properly. The log shows a Java&nbsp;error:</p>
 <pre class="code literal-block">
 2013-06-27 14:45:40.300 jsvc[57146:203] Apple AWT Java VM was loaded on first thread -- can't start AWT.
-Jun 27, 2013 2:45:40 PM org.apache.catalina.startup.Bootstrap initClassLoaders
-SEVERE: Class loader creation threw exception
-java.lang.InternalError: Can't start the AWT because Java was started on the first thread.  Make sure StartOnFirstThread is not specified in your application's Info.plist ...
-</pre>
-<p>To have it properly start through <tt class="docutils literal">tomcatctl</tt>, you need to add the <tt class="docutils literal">awt.headless</tt> option to <tt class="docutils literal">JAVA_OPTS</tt>.
-This can be done, by modifying the <tt class="docutils literal">/opt/local/share/java/tomcat6/conf/setenv.local</tt> file,
-and appending this line to&nbsp;it:</p>
-<pre class="literal-block">
-export JAVA_OPTS=&quot;$JAVA_OPTS -Djava.awt.headless=true&quot;
-</pre>
-</div>
-        <hr />
-    </div>
-		
+Jun 27, 2013 2:45:40 PM org.apache.catalina.startup ...</pre> <a class="btn btn-info xsmall" href="../fixing-the-cant-start-the-awt-bug-for-tomcat6.html">read more</a></div>
+    </div>	
+				
             <div class="pagination">
 <ul>
     <li class="prev disabled"><a href="#">&larr; Previous</a></li>
