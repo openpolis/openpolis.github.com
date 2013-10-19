@@ -21,7 +21,8 @@ def pelican(reload_mode=False):
 def push():
     """Commits the current changes """
     with lcd('..'):
-        local('git commit -am "pushed"')
+        local('git add .')
+        local('git commit m "pushed"')
         local('git push origin master')
 
 def publish():
