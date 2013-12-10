@@ -19,7 +19,7 @@ related items must already exist. It seems they're more appropriate to handle ag
 
 Nested relationships can be used to handle composition relations (i.e. a Place and its Acronyms). 
 The quirk is that the get_identity() method must be re-written in the nested serializer, because the default one uses 
-the id field to determine the identity of the items. 
+the id field to determine the identity of the items, which may not have, and which you surely don't have when creating new items.
 
 A working example with Places and Acronyms can be found `here`_.
 

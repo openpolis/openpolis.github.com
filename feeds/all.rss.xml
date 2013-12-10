@@ -7,7 +7,7 @@ PrimaryKeyRelatedFields, HyperlinkedRelatedField, SlugRelatedField, can be used 
 related items must already exist. It seems they&amp;#8217;re more appropriate to handle aggregation relations (i.e. User and&amp;nbsp;Groups)&lt;/p&gt;
 &lt;p&gt;Nested relationships can be used to handle composition relations (i.e. a Place and its Acronyms).
 The quirk is that the get_identity() method must be re-written in the nested serializer, because the default one uses
-the id field to determine the identity of the&amp;nbsp;items.&lt;/p&gt;
+the id field to determine the identity of the items, which may not have, and which you surely don&amp;#8217;t have when creating new&amp;nbsp;items.&lt;/p&gt;
 &lt;p&gt;A working example with Places and Acronyms can be found &lt;a class="reference external" href="http://gist.github.com/guglielmo/7851650"&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Given a Place instance with just one acronym, the &lt;span class="caps"&gt;JSON&lt;/span&gt; representation would&amp;nbsp;be:&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
