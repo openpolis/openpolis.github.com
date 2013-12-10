@@ -22,7 +22,7 @@ def push():
     """Commits the current changes """
     with lcd('..'):
         local('git add .')
-        local('git commit m "pushed"')
+        local('git commit -m "pushed"')
         local('git push origin master')
 
 def publish():

@@ -114,162 +114,11 @@ the id field to determine the identity of the&nbsp;items.</p>
         <hr />
     </div>
 		
-    
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="../using-mapnik-inside-a-virtualenv-on-osx.html"><h2>Using Mapnik inside a virtualenv on&nbsp;<span class="caps">OSX</span></h2></a>
-        <div class= "well small"> Sun 20 October 2013
-
-by <a class="url fn" href="../author/guglielmo.html">guglielmo</a>
- 
-
-<br/>
-Filed under <a href="../category/howto.html">howto</a>
-
- 
-    Tags <a href="../tag/python.html">python</a> <a href="../tag/osx.html">osx</a> <a href="../tag/macports.html">macports</a> 
- </div>
-        <div class="summary"><p><a class="reference external" href="https://github.com/mapnik/mapnik/wiki/Mapnik2">Mapnik</a> is a tool to produce maps out of gis&nbsp;data.</p>
-<p>Since installation in a virtualenv through <tt class="docutils literal">pip install mapnik2</tt> fails, due to compilation
-problems (boost library cannot be located correctly), the following workaround can be&nbsp;used.</p>
-<ul>
-<li><p class="first">Install Mapnik through&nbsp;macports:</p>
-<pre class="literal-block">
-sudo port install mapnik &#64;2.2.0_0+python27
-</pre>
-<p>This ...</p></li></ul> <a class="btn btn-info xsmall" href="../using-mapnik-inside-a-virtualenv-on-osx.html">read more</a></div>
-    </div>	
-				
-    
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="../using-tkinter-inside-a-virtualenv.html"><h2>Using Tkinter inside a&nbsp;virtualenv</h2></a>
-        <div class= "well small"> Sat 19 October 2013
-
-by <a class="url fn" href="../author/guglielmo.html">guglielmo</a>
- 
-
-<br/>
-Filed under <a href="../category/howto.html">howto</a>
-
- 
-    Tags <a href="../tag/python.html">python</a> <a href="../tag/osx.html">osx</a> <a href="../tag/macports.html">macports</a> 
- </div>
-        <div class="summary"><p><a class="reference external" href="https://wiki.python.org/moin/TkInter">Tkinter</a> is usually installed on <span class="caps">OSX</span> trhough <a class="reference external" href="http://www.macports.org/">macports</a> as a global&nbsp;package:</p>
-<pre class="literal-block">
-sudo port install py27-tkinter
-</pre>
-<p>Within a virtualenv the package will not be imported, as global packages are not included by&nbsp;default:</p>
-<pre class="literal-block">
-&gt;&gt;&gt; import Tkinter
-Traceback (most recent call last):
-  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
-  File &quot;/opt/local/Library ...</pre> <a class="btn btn-info xsmall" href="../using-tkinter-inside-a-virtualenv.html">read more</a></div>
-    </div>	
-				
-    
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="../fixing-the-cant-start-the-awt-bug-for-tomcat6.html"><h2>Fixing the &#8220;can&#8217;t start the <span class="caps">AWT</span>&#8221; bug for&nbsp;Tomcat6</h2></a>
-        <div class= "well small"> Tue 25 June 2013
-
-by <a class="url fn" href="../author/guglielmo.html">guglielmo</a>
- 
-
-<br/>
-Filed under <a href="../category/howto.html">howto</a>
-
- 
-    Tags <a href="../tag/tomcat6.html">tomcat6</a> <a href="../tag/java.html">java</a> <a href="../tag/macports.html">macports</a> <a href="../tag/osx.html">osx</a> 
- </div>
-        <div class="summary"><p>After a Java upgrade on the <span class="caps">OSX</span>, Tomcat6 is not starting properly. The log shows a Java&nbsp;error:</p>
-<pre class="code literal-block">
-2013-06-27 14:45:40.300 jsvc[57146:203] Apple AWT Java VM was loaded on first thread -- can't start AWT.
-Jun 27, 2013 2:45:40 PM org.apache.catalina.startup ...</pre> <a class="btn btn-info xsmall" href="../fixing-the-cant-start-the-awt-bug-for-tomcat6.html">read more</a></div>
-    </div>	
-				
-    
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="../how-to-configure-bash-completion-in-ubuntu.html"><h2>How to configure bash completion in&nbsp;ubuntu</h2></a>
-        <div class= "well small"> Thu 11 April 2013
-
-by <a class="url fn" href="../author/guglielmo.html">guglielmo</a>
- 
-
-<br/>
-Filed under <a href="../category/howto.html">howto</a>
-
- 
-    Tags <a href="../tag/bash.html">bash</a> <a href="../tag/terminal.html">terminal</a> 
- </div>
-        <div class="summary"><p>Working almost always in the terminal of a linux box, the <em>autocompletion</em> feature enhances your speed and comfort, a&nbsp;lot.</p>
-<p>Under Ubuntu, autocompletion is installable, if not already installed,&nbsp;with:</p>
-<pre class="literal-block">
-apt-get install bash_completion
-</pre>
-<p>The <tt class="docutils literal"><span class="pre">~/.bashrc</span></tt> config file should contain these&nbsp;lines:</p>
-<pre class="literal-block">
-if [ -f /etc/bash_completion ] &amp;&amp; ! shopt -oq posix; then
-    . /etc ...</pre> <a class="btn btn-info xsmall" href="../how-to-configure-bash-completion-in-ubuntu.html">read more</a></div>
-    </div>	
-				
-    
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="../how-to-install-solr-on-tomcat7-over-ubuntu-1204.html"><h2>How to install solr on tomcat7, over Ubuntu&nbsp;12.04</h2></a>
-        <div class= "well small"> Wed 10 April 2013
-
-by <a class="url fn" href="../author/guglielmo.html">guglielmo</a>
- 
-
-<br/>
-Filed under <a href="../category/howto.html">howto</a>
-
- 
-    Tags <a href="../tag/solr.html">solr</a> <a href="../tag/tomcat.html">tomcat</a> <a href="../tag/ubuntu.html">ubuntu</a> 
- </div>
-        <div class="summary"><div class="section" id="tomcat7">
-<h2>Tomcat7</h2>
-<p>Ubuntu 12.04 comes with <a class="reference external" href="http://tomcat.apache.org/">tomcat</a> easily installable as a package (you need&nbsp;jdk):</p>
-<pre class="literal-block">
-apt-get install default-jdk tomcat7 tomcat7-admin tomcat7-user tomcat7-docs
-</pre>
-<p>Configure access to the web-admin in <tt class="docutils literal"><span class="pre">/etc/tomcat7/tomcat-users.xml</span></tt>:</p>
-<pre class="literal-block">
-&lt;tomcat-users&gt;
-  &lt;role rolename=&quot;manager-gui&quot;/&gt;
-  &lt;user username=&quot;manager&quot; password=&quot;S3krEt&quot; roles=&quot;manager-gui&quot;/&gt;
-&lt;/tomcat-users&gt;
-</pre>
-<p>The tomcat management console is now ...</p></div> <a class="btn btn-info xsmall" href="../how-to-install-solr-on-tomcat7-over-ubuntu-1204.html">read more</a></div>
-    </div>	
-				
             <div class="pagination">
 <ul>
     <li class="prev disabled"><a href="#">&larr; Previous</a></li>
 
-    <li class="active"><a href="../category/howto.html">1</a></li>
+    <li class="active"><a href="../tag/api.html">1</a></li>
 
     <li class="next disabled"><a href="#">&rarr; Next</a></li>
 
@@ -301,7 +150,7 @@ apt-get install default-jdk tomcat7 tomcat7-admin tomcat7-user tomcat7-docs
                 Categories
                 </li>
                 
-                                <li class="active"><a href="../category/howto.html">howto</a></li>
+                                <li ><a href="../category/howto.html">howto</a></li>
                                 <li ><a href="../category/posts.html">posts</a></li>
                                 <li ><a href="../category/reporting.html">reporting</a></li>
                                    

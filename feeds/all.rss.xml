@@ -1,5 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Openpolis Lab</title><link>http://lab.openpolis.it/</link><description></description><atom:link href="http://lab.openpolis.it/feeds/all.rss.xml" rel="self"></atom:link><lastBuildDate>Sun, 20 Oct 2013 10:30:00 +0200</lastBuildDate><item><title>Using Mapnik inside a virtualenv on OSX</title><link>http://lab.openpolis.it/using-mapnik-inside-a-virtualenv-on-osx.html</link><description>&lt;p&gt;&lt;a class="reference external" href="https://github.com/mapnik/mapnik/wiki/Mapnik2"&gt;Mapnik&lt;/a&gt; is a tool to produce maps out of gis&amp;nbsp;data.&lt;/p&gt;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Openpolis Lab</title><link>http://lab.openpolis.it/</link><description></description><atom:link href="http://lab.openpolis.it/feeds/all.rss.xml" rel="self"></atom:link><lastBuildDate>Mon, 09 Dec 2013 10:45:00 +0100</lastBuildDate><item><title>Writeable Foreign keys in Django Rest Framework</title><link>http://lab.openpolis.it/writeable-foreign-keys-in-django-rest-framework.html</link><description>&lt;p&gt;&lt;a class="reference external" href="http://django-rest-framework.org/"&gt;Django Rest Framework&lt;/a&gt; is a django-based framework to produce browseable&amp;nbsp;APIs.&lt;/p&gt;
+&lt;p&gt;The documentation and the tutorial are pretty much clear, but implementing a writeable &lt;span class="caps"&gt;API&lt;/span&gt;
+for related fields can be&amp;nbsp;tricky.&lt;/p&gt;
+&lt;p&gt;RelatedField is read-only.
+PrimaryKeyRelatedFields, HyperlinkedRelatedField, SlugRelatedField, can be used as writeable, but the
+related items must already exist. It seems they&amp;#8217;re more appropriate to handle aggregation relations (i.e. User and&amp;nbsp;Groups)&lt;/p&gt;
+&lt;p&gt;Nested relationships can be used to handle composition relations (i.e. a Place and its Acronyms).
+The quirk is that the get_identity() method must be re-written in the nested serializer, because the default one uses
+the id field to determine the identity of the&amp;nbsp;items.&lt;/p&gt;
+&lt;p&gt;A working example with Places and Acronyms can be found &lt;a class="reference external" href="http://gist.github.com/guglielmo/7851650"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Given a Place instance with just one acronym, the &lt;span class="caps"&gt;JSON&lt;/span&gt; representation would&amp;nbsp;be:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+{
+    &amp;quot;_self&amp;quot;: &amp;quot;http://localhost:8003/maps/places/roma-comune&amp;quot;,
+    &amp;quot;slug&amp;quot;: &amp;quot;roma-comune&amp;quot;,
+    &amp;quot;name&amp;quot;: &amp;quot;Roma&amp;quot;,
+    &amp;quot;acronyms&amp;quot;: [
+        &amp;quot;RM&amp;quot;
+    ]
+}
+&lt;/pre&gt;
+&lt;p&gt;PUTting the following json payload to the&amp;nbsp;resource:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+{
+    &amp;quot;slug&amp;quot;: &amp;quot;roma-comune&amp;quot;,
+    &amp;quot;name&amp;quot;: &amp;quot;Roma&amp;quot;,
+    &amp;quot;acronyms&amp;quot;: [
+        &amp;quot;RM&amp;quot;, &amp;quot;ROM&amp;quot;
+    ]
+}
+&lt;/pre&gt;
+&lt;p&gt;or PATCHing the even shorter&amp;nbsp;one:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+{
+    &amp;quot;acronyms&amp;quot;: [
+        &amp;quot;RM&amp;quot;, &amp;quot;ROM&amp;quot;
+    ]
+}
+&lt;/pre&gt;
+&lt;p&gt;The final result would be that the &lt;strong&gt;&lt;span class="caps"&gt;ROM&lt;/span&gt;&lt;/strong&gt; acronym would be added to the Place&amp;nbsp;resource.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">guglielmo</dc:creator><pubDate>Mon, 09 Dec 2013 10:45:00 +0100</pubDate><guid>tag:lab.openpolis.it,2013-12-09:writeable-foreign-keys-in-django-rest-framework.html</guid><category>python</category><category>django</category><category>django-rest-framework</category><category>API</category></item><item><title>Using Mapnik inside a virtualenv on OSX</title><link>http://lab.openpolis.it/using-mapnik-inside-a-virtualenv-on-osx.html</link><description>&lt;p&gt;&lt;a class="reference external" href="https://github.com/mapnik/mapnik/wiki/Mapnik2"&gt;Mapnik&lt;/a&gt; is a tool to produce maps out of gis&amp;nbsp;data.&lt;/p&gt;
 &lt;p&gt;Since installation in a virtualenv through &lt;tt class="docutils literal"&gt;pip install mapnik2&lt;/tt&gt; fails, due to compilation
 problems (boost library cannot be located correctly), the following workaround can be&amp;nbsp;used.&lt;/p&gt;
 &lt;ul&gt;

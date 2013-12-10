@@ -49,51 +49,79 @@
     <div class="row">
 
         <div class="span9">
-        
-<h1>Archives</h1>
+            <div class='article'>
+        <div class="content-title">
+            <h1>Writeable Foreign keys in Django Rest&nbsp;Framework</h1>
+            Mon 09 December 2013
 
-<table class="table">
-    <tbody>
-            <tr>
-        <td>09 Dec 2013</td>
-        <td><a href='writeable-foreign-keys-in-django-rest-framework.html'>Writeable Foreign keys in Django Rest&nbsp;Framework</a></td>
-        </tr>
-            <tr>
-        <td>20 Oct 2013</td>
-        <td><a href='using-mapnik-inside-a-virtualenv-on-osx.html'>Using Mapnik inside a virtualenv on&nbsp;<span class="caps">OSX</span></a></td>
-        </tr>
-            <tr>
-        <td>19 Oct 2013</td>
-        <td><a href='using-tkinter-inside-a-virtualenv.html'>Using Tkinter inside a&nbsp;virtualenv</a></td>
-        </tr>
-            <tr>
-        <td>25 Jun 2013</td>
-        <td><a href='fixing-the-cant-start-the-awt-bug-for-tomcat6.html'>Fixing the &#8220;can&#8217;t start the <span class="caps">AWT</span>&#8221; bug for&nbsp;Tomcat6</a></td>
-        </tr>
-            <tr>
-        <td>11 Apr 2013</td>
-        <td><a href='how-to-configure-bash-completion-in-ubuntu.html'>How to configure bash completion in&nbsp;ubuntu</a></td>
-        </tr>
-            <tr>
-        <td>10 Apr 2013</td>
-        <td><a href='how-to-install-solr-on-tomcat7-over-ubuntu-1204.html'>How to install solr on tomcat7, over Ubuntu&nbsp;12.04</a></td>
-        </tr>
-            <tr>
-        <td>20 Mar 2013</td>
-        <td><a href='opensource-in-the-uk.html'>OpenSource in the&nbsp;<span class="caps">UK</span></a></td>
-        </tr>
-            <tr>
-        <td>15 Mar 2013</td>
-        <td><a href='bureaucrats-like-github.html'>Bureaucrats like&nbsp;Github</a></td>
-        </tr>
-            <tr>
-        <td>17 Sep 2012</td>
-        <td><a href='blog-todo-list.html'><span class="caps">BLOG</span> <span class="caps">TODO</span>&nbsp;<span class="caps">LIST</span></a></td>
-        </tr>
-        </tbody>
-</table>
+by <a class="url fn" href="./author/guglielmo.html">guglielmo</a>
+ 
 
+<br/>
+Filed under <a href="./category/howto.html">howto</a>
 
+ 
+    Tags <a href="./tag/python.html">python</a> <a href="./tag/django.html">django</a> <a href="./tag/django-rest-framework.html">django-rest-framework</a> <a href="./tag/api.html">API</a> 
+        </div>
+	
+        <div><p><a class="reference external" href="http://django-rest-framework.org/">Django Rest Framework</a> is a django-based framework to produce browseable&nbsp;APIs.</p>
+<p>The documentation and the tutorial are pretty much clear, but implementing a writeable <span class="caps">API</span>
+for related fields can be&nbsp;tricky.</p>
+<p>RelatedField is read-only.
+PrimaryKeyRelatedFields, HyperlinkedRelatedField, SlugRelatedField, can be used as writeable, but the
+related items must already exist. It seems they&#8217;re more appropriate to handle aggregation relations (i.e. User and&nbsp;Groups)</p>
+<p>Nested relationships can be used to handle composition relations (i.e. a Place and its Acronyms).
+The quirk is that the get_identity() method must be re-written in the nested serializer, because the default one uses
+the id field to determine the identity of the&nbsp;items.</p>
+<p>A working example with Places and Acronyms can be found <a class="reference external" href="http://gist.github.com/guglielmo/7851650">here</a>.</p>
+<p>Given a Place instance with just one acronym, the <span class="caps">JSON</span> representation would&nbsp;be:</p>
+<pre class="literal-block">
+{
+    &quot;_self&quot;: &quot;http://localhost:8003/maps/places/roma-comune&quot;,
+    &quot;slug&quot;: &quot;roma-comune&quot;,
+    &quot;name&quot;: &quot;Roma&quot;,
+    &quot;acronyms&quot;: [
+        &quot;RM&quot;
+    ]
+}
+</pre>
+<p>PUTting the following json payload to the&nbsp;resource:</p>
+<pre class="literal-block">
+{
+    &quot;slug&quot;: &quot;roma-comune&quot;,
+    &quot;name&quot;: &quot;Roma&quot;,
+    &quot;acronyms&quot;: [
+        &quot;RM&quot;, &quot;ROM&quot;
+    ]
+}
+</pre>
+<p>or PATCHing the even shorter&nbsp;one:</p>
+<pre class="literal-block">
+{
+    &quot;acronyms&quot;: [
+        &quot;RM&quot;, &quot;ROM&quot;
+    ]
+}
+</pre>
+<p>The final result would be that the <strong><span class="caps">ROM</span></strong> acronym would be added to the Place&nbsp;resource.</p>
+</div>
+	
+        <hr>
+    	   
+        <h2>Comments</h2>
+	<a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="guille">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+	<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'openpolislab'; 
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
         </div>
         
         <div class="span3">
@@ -104,7 +132,7 @@
                 Site
                 </li>
             
-                <li class="active"><a href="./archives.html">Archives</a>
+                <li ><a href="./archives.html">Archives</a>
                 <li ><a href="./tags.html">Tags</a>
                 <li><a href="./feeds/all.atom.xml" rel="alternate">Atom feed</a></li>
                                 <li><a href="./feeds/all.rss.xml" rel="alternate">RSS feed</a></li>
@@ -118,7 +146,7 @@
                 Categories
                 </li>
                 
-                                <li ><a href="./category/howto.html">howto</a></li>
+                                <li class="active"><a href="./category/howto.html">howto</a></li>
                                 <li ><a href="./category/posts.html">posts</a></li>
                                 <li ><a href="./category/reporting.html">reporting</a></li>
                                    
